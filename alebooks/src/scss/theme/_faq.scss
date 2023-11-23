@@ -1,0 +1,96 @@
+@use '../config' as *;
+@use '../tools' as *;
+@use 'fonts' as *;
+
+
+.faq {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+
+    &__component {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        border-bottom: 1.5px solid var(--color-green);
+        &.active{
+            background-color: var(--color-green);
+            .faq__item__title{
+                background-color: var(--color-green);
+                span{
+                    color: var(--color-white);
+                }
+            }
+            .faq__item__content.left.active{
+                color: var(--color-white);
+            }
+            
+        }
+        &__title {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--color-pastel);
+            gap: rem(30);
+            
+            padding: rem(30);
+            cursor: pointer;
+            span {
+                width: 80%;
+                font-weight: 600;
+                position: relative;
+                display: inline-block;
+                padding: rem(20) rem(0);
+                color: var(--color-green);
+                @extend #{'.font-t3'};
+                @include max-width(md) {
+                    width: 90%;
+                }
+            }
+            .faq__arrow {
+                width: rem(34);
+                height: rem(53);
+                background-color: var(--color-green);
+                mask-image: url("../images/arrow-down-faq.svg");
+                mask-repeat: no-repeat;
+                background-repeat: no-repeat;
+                right: 0;
+                transition: ease-in-out all 0.3s;
+                transition: transform 0.3s ease-in-out;
+                &.active {
+                   transform: rotate(-180deg);
+                   background-color: var(--color-white);
+                }
+            }
+        }
+        &__content {
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            padding: rem(20) rem(0);
+            line-height: 160%;
+            &.left {
+                justify-content: flex-start;
+                display: none;
+                border-bottom: 1.5px solid transparent;
+                transition: ease-in-out all 5s;
+                &.active {
+                    width: 80%;
+                    @extend #{'.font-body'};
+                    padding: rem(30);
+                    display: flex;
+                    color: var(--color-green);
+                    @include max-width(md) {
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
+}
+

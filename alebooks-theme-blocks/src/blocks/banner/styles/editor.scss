@@ -1,0 +1,44 @@
+.art-banner {
+  min-height: 25rem;
+  position: relative;
+
+	.block-editor-inner-blocks{
+		position: relative;
+		z-index: 10;
+	}
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 25rem;
+    display: flex;
+    width: 100%;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &.placeholder {
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__titulo {
+    position: absolute;
+    width: 25%;
+    padding: 30px;
+    background-color: #ffffff;
+    left: 5%;
+    bottom: 0;
+    z-index: 10;
+    h1 {
+      color: #FFFFFF;
+    }
+  }
+}

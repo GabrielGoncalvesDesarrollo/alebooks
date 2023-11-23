@@ -1,0 +1,116 @@
+@use 'config' as *;
+@use 'util' as *;
+@use 'tools' as *;
+@use 'fonts' as *;
+
+.timeline {
+	position: relative;
+	width: 100%;
+    display: grid;
+	grid-template-columns: 1fr;
+    justify-content: center;
+	row-gap: rem(30);
+
+    &__component {
+        display: grid;
+		width: 100%;
+		align-self: flex-start;
+
+        grid-template-columns: 5fr rem(100) 5fr;
+		grid-template-rows: 1fr;
+        gap: rem(50);
+
+		@include max-width(lg){
+			grid-template-columns: 1fr;
+			gap: rem(0);
+		}
+    }
+    
+	&__icon {
+		display: flex;
+        
+        &:after {
+            content: "";
+            position: absolute;
+            width: rem(3);
+            background: var(--color-light-green);
+            top: 100px;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            height: 75%;
+            z-index: -1;
+            @include max-width(sm){
+                height: calc(72% - rem(0));
+            }
+            @include max-width(md){
+                left: 5%;
+            }
+        }
+
+        &:last-child::after {
+            display: none; // Esto ocultará el último :after
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: rem(40);
+            height: rem(40);
+            background: var(--color-light-green);
+            border-radius: 50%;
+            left: 50%;
+            transform: translate( -50% , 150%); 
+            z-index: 2;
+            @include max-width(md){
+                left: 5%;
+            }
+        }
+	}
+
+	&__item{
+		&__image {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			
+			@include max-width(lg){
+				order: 1;
+			}
+			img{
+				width: 100%
+			}
+		}
+		&__content {
+			display: flex;
+			align-items: flex-start;
+			background-color: var(--color-blanco-100);
+            display: flex;
+            flex-direction: column;
+            gap: rem(10);
+			padding: rem(30) rem(0) rem(0) rem(0);
+            width: 80%;
+
+			@include max-width(lg){
+				order: 0;
+			}
+            @include max-width(md){
+				width: 100%;
+                align-items: center;
+                gap: 0;
+                padding: rem(30) rem(30) rem(0) rem(30);
+			}
+            @include max-width(sm){
+                align-items: flex-start;
+			}
+			&.title {
+				@extend #{'.font-t2'};
+                font-weight: 600;
+			}
+			&.desc {
+				@extend #{'.font-body'};
+			}
+		}
+	}
+}

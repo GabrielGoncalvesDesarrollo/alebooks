@@ -1,0 +1,80 @@
+.art-newtimeline {
+	.info{
+		display: flex;
+	}
+	&-row {
+		display: flex;
+	}
+	&:before{
+		background:none;
+	}
+
+	.remove {
+		opacity: 0;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		padding: 0;
+		border: 0;
+		background: #000;
+		border-radius: 50%;
+		color: white;
+		z-index: 99;
+		cursor: pointer;
+		font-size: 20px;
+		line-height: 1;
+		font-family: dashicons;
+		font-weight: 400;
+		font-style: normal;
+		vertical-align: top;
+	}
+
+	.timeline-content {
+		text-align: center;
+		display: flex;
+		align-items: center;
+    	flex-direction: column;
+    	justify-content: center;
+		border: 1px solid black;
+		border-radius: 5px;
+		margin-bottom: 1rem;
+		padding: 1rem;
+		&:hover {
+			border: 1px dashed black;
+			.remove {
+				opacity: 1;
+			}
+		}
+		.timeline-row{
+			display: flex;
+    		justify-content: space-around;
+			align-items: center;
+		}
+	}
+
+	.addWhite {
+		position: relative;
+		display: block;
+		border-radius: 5px;
+		padding: 10px;
+		border: 0;
+		background: var(--wp-components-color-accent,var(--wp-admin-theme-color,#007cba));
+		color: white;
+		cursor: pointer;
+		text-align: center;
+		margin: 0 auto;
+		margin-top: 30px;
+		span {
+			display: block;
+			margin-bottom: 5px;
+
+			&:hover {
+				color: #191e23;
+			}
+		
+			&:focus {
+				outline: none;
+			}
+  	}
+	}
+}

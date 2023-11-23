@@ -1,0 +1,7 @@
+const icons = {}
+
+icons.background = <svg fill="#000000" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image</title> <path d="M0 25.156v-18.313h22.406v18.313h-22.406zM20.125 19.094v-9.969h-17.844v8.469l4.875-2.906 6.375 3.469 2.594-1.531zM15.938 14.469c-1 0-1.781-0.813-1.781-1.813s0.781-1.813 1.781-1.813 1.781 0.813 1.781 1.813-0.781 1.813-1.781 1.813z"></path> </g></svg>;
+
+icons.placeholder = <svg fill="#000000" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M220,48a12.01343,12.01343,0,0,0-12-12H48a11.95851,11.95851,0,0,0-8.4043,3.44824c-.02539.02442-.05566.041-.081.06641s-.042.05517-.06641.081A11.95851,11.95851,0,0,0,36,48V208a12.01343,12.01343,0,0,0,12,12H208a11.95851,11.95851,0,0,0,8.4043-3.44824c.02539-.02442.05566-.041.08105-.06641s.042-.05517.06641-.08105A11.95851,11.95851,0,0,0,220,208Zm-8,0V206.34375L49.65674,44H208A4.00427,4.00427,0,0,1,212,48ZM44,208V49.65625L206.34326,212H48A4.00427,4.00427,0,0,1,44,208Z"></path> </g></svg>;
+
+export default icons;

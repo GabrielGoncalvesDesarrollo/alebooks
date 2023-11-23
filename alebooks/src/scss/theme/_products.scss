@@ -1,0 +1,80 @@
+@use 'util' as *;
+@use 'config' as *;
+@use 'fonts' as *;
+/* @use 'buttons' as *; */
+@use 'tools' as *;
+
+.products {
+	.product {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	a {
+		text-decoration: none;
+
+		&.button {
+			//@extend #{'.btn'};
+			background: var(--color-black);
+			border: solid 1px var(--color-black);
+			border-radius: rem(30);
+			padding: rem(16) rem(18);
+			color: var(--color-white);
+			margin-left: auto;
+			margin-right: auto;
+			transition: all 300ms ease;
+
+			&:hover {
+				background: transparent;
+				color: var(--color-black);
+			}
+		}
+	}
+
+	.onsale {
+		background-color: var(--color-red);
+		color: var(--color-white);
+	}
+
+	.attachment-woocommerce_thumbnail {
+		width: rem(283);
+		margin: 0 auto;
+		margin-bottom: var(--space-md);
+	}
+
+	span {
+		&.price {
+			@extend #{'.font-precio'};
+			text-align: center;
+		}
+	}
+}
+
+.related.products{
+	h2{
+		margin-bottom: 2rem;
+	}
+}
+
+.content {
+	h2 {
+		&.woocommerce{
+			&-loop{
+				&-product {
+					&__title {
+						@extend #{'.font-t3'};
+						color: var(--color-black);
+						text-align: center;
+						margin-bottom: var(--space-md);
+					}
+				}
+			}
+		}
+	}
+}
+

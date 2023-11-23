@@ -1,0 +1,17 @@
+.image__grid{
+	padding-top: 20px;
+	display: flex;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__item{
+        width: auto;
+        height: 300px;
+        object-fit: cover;
+        img{
+            height: 100%;
+            width: 300px;
+            object-fit: cover;
+        }
+    }
+}

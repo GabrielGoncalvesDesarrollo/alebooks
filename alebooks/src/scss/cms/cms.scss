@@ -1,0 +1,81 @@
+@use 'config'as *;
+@use 'tools' as *;
+@use 'theme/fonts' as *;
+
+.size-full {
+	display: flex;
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	svg {
+		width: 100%;
+		height: auto;
+	}
+}
+
+figure {
+	&.aligncenter {
+		img {
+			margin: 0 auto;
+		}
+	}
+	&.alignright {
+		img {
+			margin-left: auto;
+		}
+	}
+	&.alignleft {
+		img {
+			margin-right: auto;
+		}
+	}
+	&.alignfull {
+		img {
+			width: 100%;
+		}
+	}
+}
+
+.bg {
+	&-top {
+		&-left {
+			background-position: top left;
+		}
+		&-center {
+			background-position: top center;
+		}
+		&-right {
+			background-position: top right;
+		}
+	}
+	&-center {
+		&-left{
+			background-position: center left;
+		}
+		&-center {
+			background-position: center center;
+		}
+		&-right {
+			background-position: center right;
+		}
+	}
+	&-bottom{
+		&-left {
+			background-position: bottom left;
+		}
+		&-center {
+			background-position: bottom center;
+		}
+		&-right {
+			background-position: bottom right;
+		}
+	}
+	&-contain {
+		background-size: contain;
+	}
+	&-cover {
+		background-size: cover;
+	}
+}

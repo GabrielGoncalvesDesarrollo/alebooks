@@ -1,0 +1,27 @@
+@use 'config' as *;
+@use 'util' as *;
+@use 'tools' as *;
+@use 'fonts' as *;
+
+.archive {
+	h1 {
+		color: var(--color-red);
+	}
+
+	.description {
+		@extend #{'.font-t3-dest'};
+	}
+
+	&__banner {
+		height: rem(368);
+		display: flex;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+}

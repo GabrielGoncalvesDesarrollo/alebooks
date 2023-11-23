@@ -1,0 +1,153 @@
+@use 'config' as *;
+@use 'util' as *;
+@use 'tools' as *;
+@use 'fonts' as *;
+
+header {
+}
+
+.header	{
+	padding: rem(40) 0;
+
+	&__logo {
+		height: 100%;
+	}
+
+	.container {
+		@include max-width(lg){
+			max-width: 100%;
+			width: calc(100% - var(--container-margin-x));
+			margin-right: unset;
+		} 
+	}
+
+	&.open {
+		@include max-width(lg){
+			background-color: var(--color-green);
+		}
+		.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::after, .hamburger.is-active .hamburger-inner::before{
+			background-color: #FFF;
+		}
+	}
+
+}
+
+
+.menu {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	gap: rem(50);
+	align-items: center;
+
+	li {
+		a{
+		@extend #{'.font-menu'};
+		color: var(--color-black);
+		font-weight: 400;
+		text-decoration: none;
+		position: relative;
+		transition: border-bottom 0.3s ease;
+		border-bottom: 1px solid transparent;
+
+		&:hover {
+			border-bottom: 1px solid var(--color-black);
+		}
+    	}
+	}
+	.current-menu-item{
+		a{
+			font-weight: 600;
+		}
+	}
+}
+
+.nav-mobile {
+	@include min-width(lg){
+		display: none;
+	}
+
+	max-height: 0;
+	overflow: hidden;
+	background-color: var(--color-green);
+	height: calc(100vh - rem(72));
+	width: 100%;
+	position: absolute;
+	top: rem(92);
+	z-index: 200;
+	transition: max-height 0.3s ease;   
+
+	.menu-wrapper {
+		height: 95%;
+	}
+
+	&.open {
+		max-height: calc(100vh - rem(72));
+	}
+
+	&__content {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: var(--space-xl);
+
+		.icono {
+			img {
+				width: rem(54);
+				height: rem(54);
+			}
+		}
+
+		.rrss {
+			ul {
+				display: flex;
+				flex-direction: row;
+				gap: var(--space-md);
+			}
+		}
+	}
+}
+
+.menu-mobile {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	align-items: center;
+
+	li {
+		text-align: center;
+		a{
+		@extend #{'.font-menu-footer'};
+		color: var(--color-white);
+		font-weight: 400;
+		text-decoration: none;
+		position: relative;
+		transition: border-bottom 0.3s ease;
+		border-bottom: 1px solid transparent;
+
+		&:hover {
+			border-bottom: 1px solid var(--color-white);
+		}
+    	}
+	}
+	.current-menu-item{
+		a{
+			font-weight: 600;
+		}
+	}
+}
+
+.logo-link .white-logo {
+    display: none;
+}
+
+.logo-link.white-logo .normal-logo {
+    display: none;
+}
+
+.logo-link.white-logo .white-logo {
+    display: block; 
+}

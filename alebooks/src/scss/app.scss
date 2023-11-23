@@ -1,0 +1,191 @@
+@use 'reset';
+@use 'config' as * with(
+	$breakpoints: (
+		'xs': '20rem',
+		'sm': '48rem',
+		'md': '64rem',
+		'lg': '75rem',
+		'xl': '90rem'
+	),
+	$max-width: (
+		'3xs': '20rem',
+		'2xs': '26rem',
+		'xs': '32rem',
+		'sm': '48rem',
+		'md': '64rem',
+		'lg': '90%',
+		'xl': '95%'
+	),
+	$font-family:(
+		 'primary': 'Montserrat, sans-serif',
+		 'secondary': 'Playfair Display, sans-serif',
+	),
+	$colors:(
+		'default':(
+			'primary': (
+				'base': '0, 0%, 0%'
+			),
+			'black': (
+				'base': '60, 3%, 17%'
+			),
+			'black-b': (
+				'base': '0, 0%, 0%'
+			),
+			'white': (
+				'base': '0, 0%, 100%'
+			),
+			'pastel':(
+				'base': '42, 54%, 95%',
+			),
+			'dark-grey':(
+				'base': '274, 11%, 28%',
+			),
+			'grey':(
+				'base': '0, 0%, 42%',
+				),
+			'light-grey':(
+				'base': '0, 0%, 85%',
+			),
+			'green':(
+				'base': '115, 41%, 34%',
+			),
+			'light-green':(
+				'base': '160, 50%, 93%',
+			),
+			'dark-green':(
+				'base': '165, 76%, 25%',
+			),
+		)
+	),
+	$font-size: (
+		'fluid': (
+			'@sm': (
+				't1': '2rem',
+				't2': '1.75rem',
+				't3': '1.125rem',
+				't3-dest': '1.125rem',
+				't4': '1.5rem',
+				'body': '1.125rem',
+				'menu': '1rem',
+				'menu-footer': '2.25rem',
+			),
+			'@lg': (
+				't1': '3.5rem',
+				't2': '2.5rem',
+				't3': '1.85rem',
+				't3-dest': '1.125rem',
+				't4': '1.75rem',
+				'body': '1.125rem',
+				'menu': '1rem',
+				'menu-footer': '2.25rem',
+			)
+  	)
+  ),
+);
+
+@use 'typography';
+@use 'icons';
+/* @use 'buttons'; */
+@use 'forms';
+@use 'util';  // ← utility classes
+
+@use './cms/cms';
+@use './cms/cmsutil';
+
+@use 'modifiers';
+
+@use './tools/tools' as *;
+
+@use '../../node_modules/swiper/swiper-bundle.css' as *;
+
+@use './theme/fonts';
+@use './theme/header';
+@use './theme/banner';
+@use './theme/footer';
+@use './theme/content';
+@use './theme/archive';
+@use './theme/timeline';
+@use './theme/theme_forms';
+@use './theme/theme_buttons';
+@use './theme/theme_modifiers';
+@use './theme/faq';
+@use './theme/sitemap';
+
+@use './theme/theme_posts';
+@use './theme/theme_404';
+@use './theme/theme_totop';
+
+$hamburger-padding-x           : 0 !default;
+$hamburger-padding-y           : 0.125rem !default;
+$hamburger-layer-width         : 1.875rem !default;
+$hamburger-layer-height        : 0.125rem !default;
+$hamburger-layer-spacing       : 0.375rem !default;
+$hamburger-layer-color         : #000 !default;
+
+@import './hamburgers/hamburgers';
+
+html {
+	position: relative;
+	scroll-behavior: smooth;
+	scroll-behavior: smooth;
+	overflow-y: initial;
+	height: 100%;
+	font-size: get-vw(16px);
+	
+	@include max-width(xl) {
+		font-size: rem(16);
+	} 
+
+	@media (min-width: 166.25rem) {
+		font-size: rem(23);
+	}
+
+}
+
+body {
+	font-size: rem(22);
+	height: 100vh;
+	height: 100dvh;
+	color: var(--color-black);
+	animation: fadeIn .8s ease-in-out;
+
+	&.no-scroll {
+		overflow: hidden;
+	}
+}
+
+p {
+	margin-bottom: var(--space-md);
+}
+
+
+.wrapper {
+	position: relative;
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 100%;
+}
+
+.screen-reader-text, 
+.skip-to-content:not(:focus) {
+  border: 0;
+  clip: rect(1px,1px,1px,1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

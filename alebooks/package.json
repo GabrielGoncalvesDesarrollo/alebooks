@@ -1,0 +1,82 @@
+{
+  "name": "psicodepor",
+  "title": "Psicodepor",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "gulp",
+    "build": "SET NODE_ENV=production& gulp build",
+    "bundle": "SET NODE_ENV=production& gulp bundle",
+    "dev": "concurrently --kill-others \"npm run start\" \"npm run start:css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzimisce/new_artsolut"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tzimisce/new_artsolut/issues"
+  },
+  "homepage": "https://github.com/tzimisce/new_artsolut#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.7",
+    "@vue/compiler-sfc": "^3.2.45",
+    "autoprefixer": "10.4.4",
+    "axios": "^1.1.3",
+    "babel-loader": "8.2.4",
+    "concurrently": "^7.2.2",
+    "del": "6.0.0",
+    "gulp": "4.0.2",
+    "gulp-clean-css": "4.3.0",
+    "gulp-if": "3.0.0",
+    "gulp-imagemin": "8.0.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-postcss": "9.0.1",
+    "gulp-sass": "5.1.0",
+    "gulp-sourcemaps": "3.0.0",
+    "gulp-uglify": "3.0.2",
+    "gulp-zip": "5.1.0",
+    "imagemin-gifsicle": "7.0.0",
+    "sass": "1.49.9",
+    "swiper": "^8.4.5",
+    "vue": "^3.2.45",
+    "vue-i18n": "^9.2.2",
+    "vue-loader": "^17.0.1",
+    "webpack-stream": "7.0.0",
+    "wowjs": "^1.1.3",
+    "wpeg": "^1.2.7"
+  },
+  "optionalDependencies": {
+    "imagemin-gifsicle": "^5.2.0",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-svgo": "^6.0.0"
+  },
+  "dependencies": {
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-changed": "^4.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-strip-debug": "^4.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-vue-compiler": "^1.0.0-beta.1",
+    "isotope": "^1.0.0-alpha.3",
+    "isotope-layout": "^3.0.6",
+    "modujs": "^1.4.2",
+    "modularload": "^1.2.8",
+    "plyr": "^3.7.8",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "sass-embedded": "^1.63.6",
+    "simple-parallax-js": "^5.6.2",
+    "stellar.js": "^0.6.5",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-named": "^1.1.0",
+    "vinyl-source-stream": "^2.0.0",
+    "xlsx": "^0.18.5"
+  }
+}

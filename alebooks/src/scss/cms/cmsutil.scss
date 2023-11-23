@@ -1,0 +1,146 @@
+@use 'config' as *;
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+
+$bgalignoption: (
+  'top-left': top left,
+  'top-center': top center,
+  'top-right': top right,
+	'center-left': center left,
+	'center-right': center right,
+	'bottom-left': bottom left,
+	'bottom-center': bottom center,
+	'bottom-right': bottom right,
+) !default;
+
+$bgcoveroption: (
+	'cover': cover,
+	'contain': contain
+) !default;
+
+
+/* Background classes  */
+
+.#{$util-prefix}bg-cover{
+	background-size: cover;
+}
+
+.#{$util-prefix}bg-contain{
+	background-size: contain;
+}
+
+@each $breakpoint, $value in $breakpoints {
+	.#{$util-prefix}bg-cover\@#{$breakpoint}{
+		@include min-width(#{$breakpoint}){
+			background-size: cover;
+		}	
+	}
+
+	.#{$util-prefix}bg-contain\@#{$breakpoint}{
+		@include min-width(#{$breakpoint}){
+			background-size: contain;
+		}	
+	}
+
+	@each $name, $alignment in $bgalignoption{
+		.#{$util-prefix}bg-#{$name}\@#{$breakpoint} {
+			@include min-width($breakpoint){
+				background-position: $alignment;
+			}
+		}
+	}
+
+	@each $name, $size in $bgcoveroption{
+		.#{$util-prefix}bg-#{$name}\@#{$breakpoint} {
+			@include min-width($breakpoint){
+				background-size: $size;
+			}
+		}
+	}
+	
+}
+
+/* Column order */
+@each $breakpoint, $value in $breakpoints {
+	@for $i from 0 through 12 {
+		.#{$util-prefix}order-#{$i}\@#{$breakpoint} {
+			@include min-width($breakpoint){
+				order: $i;
+			}
+		}
+	}
+}
+
+//Correcciones ios
+
+
+
+#{$util-prefix}justify-start {
+  justify-content: flex-start;
+}
+
+.#{$util-prefix}justify-end {
+  justify-content: flex-end;
+}
+
+.#{$util-prefix}justify-center {
+  justify-content: center;
+}
+
+@each $breakpoint-name, $value in $breakpoints {
+	.#{$util-prefix}justify-start\@#{$breakpoint-name} {
+		justify-content: flex-start;
+	}
+
+	.#{$util-prefix}justify-end\@#{$breakpoint-name} {
+		justify-content: flex-end;
+	}
+
+	.#{$util-prefix}justify-center\@#{$breakpoint-name} {
+		justify-content: center;
+	}
+
+	.#{$util-prefix}justify-between\@#{$breakpoint-name} {
+		justify-content: space-between;
+	}
+
+	/* align-items */
+	.#{$util-prefix}items-center\@#{$breakpoint-name} {
+		align-items: center;
+	}
+
+	.#{$util-prefix}items-start\@#{$breakpoint-name} {
+		align-items: flex-start;
+	}
+
+	.#{$util-prefix}items-end\@#{$breakpoint-name} {
+		align-items: flex-end;
+	}
+
+	.#{$util-prefix}items-baseline\@#{$breakpoint-name} {
+		align-items: baseline;
+	}
+
+	.#{$util-prefix}items-stretch\@#{$breakpoint-name} {
+		align-items: stretch;
+	}
+
+	/* align-content */
+	.#{$util-prefix}content-start\@#{$breakpoint-name} {
+		align-content: flex-start;
+	}
+
+	.#{$util-prefix}content-end\@#{$breakpoint-name} {
+		align-content: flex-end;
+	}
+
+	.#{$util-prefix}content-center\@#{$breakpoint-name} {
+		align-content: center;
+	}
+
+	.#{$util-prefix}content-between\@#{$breakpoint-name} {
+		align-content: space-between;
+	}
+}

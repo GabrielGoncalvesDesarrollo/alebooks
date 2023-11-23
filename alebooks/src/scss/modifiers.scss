@@ -1,0 +1,98 @@
+@use 'config' as *;
+@use 'util' as *;
+@use 'tools' as *;
+
+.has {
+	&-text {
+		&-align {
+			&-left {
+				text-align: left;
+			}
+			&-center {
+				text-align: center;
+			}
+			&-right {
+				text-align: right;
+			}
+		}
+	}
+
+	&-align {
+		&-center {
+			text-align: center;
+		}
+	}
+}	
+	
+
+.mt{
+	&-xs {
+		@extend #{'.margin-top-xs'};
+	}
+	&-md {
+		@extend #{'.margin-top-md'};
+	}
+	&-xl {
+		@extend #{'.margin-top-xl'};
+	}
+}
+
+.mb{
+	&-xs {
+		@extend #{'.margin-bottom-xs'};
+	}
+	&-md {
+		@extend #{'.margin-bottom-md'};
+	}
+	&-xl {
+		@extend #{'.margin-bottom-xl'};
+	}
+}
+
+.pt{
+	&-xs {
+		@extend #{'.padding-top-xs'};
+	}
+	&-md {
+		@extend #{'.padding-top-md'};
+	}
+	&-xl {
+		@extend #{'.padding-top-2xl'};
+	}
+}
+.pb{
+	&-xs {
+		@extend #{'.padding-bottom-xs'};
+	}
+	&-md {
+		@extend #{'.padding-bottom-md'};
+	}
+	&-xl {
+		@extend #{'.padding-bottom-2xl'};
+	}
+}
+
+.bg {
+	&-color {
+		&-yellow {
+			background-color: var(--color-yellow);
+		}
+	}
+}
+
+.wp-blockimage {
+
+	&.alignfull,
+	&.alignwide {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	&.alignleft{
+	  float:left;
+	}
+	&.alignright{
+	  float:right;
+	}
+}

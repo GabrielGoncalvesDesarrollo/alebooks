@@ -1,0 +1,32 @@
+{
+  "name": "psicodepor-theme-blocks",
+  "description": "delta Blocks",
+  "version": "1.0.0",
+  "author": "Artsolut",
+  "devDependencies": {
+    "@babel/node": "^7.16.0",
+    "@wordpress/components": "^19.4.0",
+    "@wordpress/hooks": "^3.3.1",
+    "@wordpress/scripts": "^21.0.1",
+    "classnames": "^2.3.1",
+    "concurrently": "^7.2.2",
+    "eslint": "^8.9.0",
+    "fast-average-color": "^7.1.0",
+    "md5": "^2.3.0",
+    "sass": "^1.49.7"
+  },
+  "scripts": {
+    "start": "wp-scripts start src/index.js",
+    "build": "wp-scripts build src/index.js",
+    "start:css": "sass src/scss/editor.scss assets/editor.css --watch",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "wp-scripts lint-style 'src/**/*.scss'",
+    "lint-js": "wp-scripts lint-js",
+    "dev": "concurrently --kill-others \"npm run start\" \"npm run start:css\""
+  },
+  "dependencies": {
+    "array-move": "^4.0.0",
+    "react-sortable-hoc": "^2.0.0",
+    "react-virtualized": "^9.22.5"
+  }
+}

@@ -1,0 +1,80 @@
+@use 'config' as *;
+@use 'util' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'CabinetGrotesk';
+  src: url('../fonts/CabinetGrotesk-Variable.woff2') format('woff2'),
+       url('../fonts/CabinetGrotesk-Variable.woff') format('woff'),
+       url('../fonts/CabinetGrotesk-Variable.ttf') format('truetype');
+       font-weight: 100 900;
+       font-display: swap;
+       font-style: normal;
+}
+
+.font{
+	&-t1 {
+		font-family: var(--font-secondary);
+		font-size: var(--text-t1);
+		/* margin-bottom: var(--space-2xs); */
+    font-weight: 700;
+    line-height: 120%;
+	}
+	&-t2 {
+		font-family: var(--font-secondary);
+		font-size: var(--text-t2);
+		/* margin-bottom: var(--space-2xs); */
+    line-height: 120%;
+	}
+
+  &-t3 {
+    font-family: var(--font-secondary);
+    font-size: var(--text-t3);
+    /* margin-bottom: var(--space-2xs); */
+		font-weight: 400;
+    line-height: 120%;
+
+		&-dest {
+			font-family: var(--font-primary);
+			font-size: var(--text-t3-dest);
+			/* margin-bottom: var(--space-2xs); */
+		}
+  }
+
+  &-t4 {
+    font-family: var(--font-primary);
+    font-size: var(--text-t4);
+    /* margin-bottom: var(--space-2xs); */
+    font-weight: 600;
+    line-height: 120%;
+  }
+  
+  &-body {
+    font-family: var(--font-primary);
+    font-size: var(--text-body);
+  }
+
+  &-menu {
+    font-family: var(--font-primary);
+    font-size: var(--text-menu);
+  }
+  &-menu-footer {
+    font-family: var(--font-primary);
+    font-size: var(--text-menu-footer);
+  }
+}
+
+.style_underline {
+	text-decoration: none;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-position: 0% 101%;
+	background-repeat: no-repeat;
+	background-size: 0% 1px;
+	transition: background-size .5s;
+	&:focus,
+	&:hover {
+		background-size: 100% 2px;
+	}
+}

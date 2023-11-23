@@ -1,0 +1,36 @@
+@use 'config' as *;
+@use 'tools' as *;
+@use 'util'as *;
+@use 'fonts' as *;
+
+/* Estilos para el botón "Back to Top" */
+#backToTopBtn {
+    display: none; 
+    position: fixed;
+    bottom: rem(20); 
+    right: rem(20); 
+		width: rem(42);
+		height: rem(42);
+    background-color: var(--color-white); 
+    color: #fff; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+		z-index: 100;
+		opacity: 0; /* Inicialmente invisible */
+
+		svg {
+			width: rem(42);
+			height: rem(42);
+		}
+
+		&.show {
+			display: block;
+			opacity: 1;
+		}
+
+		&:hover {
+			background-color: #0056b3; /* Cambiar el color de fondo al pasar el ratón */
+		}
+}
+

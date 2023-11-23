@@ -1,0 +1,152 @@
+@use 'config' as *;
+@use 'util' as *;
+@use 'tools' as *;
+@use 'fonts' as *;
+
+
+.content {
+	
+	h1 {
+		font-family: var(--font-secondary);
+		margin-bottom: var(--space-md);
+
+		@include max-width(md){
+			text-align: left;
+		}
+	}
+	
+	h1:not([class*='has-size']) {
+		@extend #{'.font-t1'};
+	}
+
+	h2 {
+		font-family: var(--font-secondary);
+    	margin-bottom: var(--space-md);
+  }
+	
+	h2:not([class*='has-size']) {
+		@extend #{'.font-t2'};
+		line-height: 130%;
+	}
+
+	h2:not([class*='margin-']){
+		margin-bottom: var(--space-md);
+	}
+
+	h3 {
+		font-family: var(--font-secondary);
+    	margin-bottom: var(--space-md);
+  }
+	
+	h3:not([class*='has-size']) {
+		@extend #{'.font-t3'};
+	}
+
+	h4 {
+		font-family: var(--font-secondary);
+    	margin-bottom: var(--space-md);
+  }
+	
+	h4:not([class*='has-size']) {
+		@extend #{'.font-t4'};
+	}
+}
+
+.color {
+	&-red {
+		color: var(--color-red);
+	}
+}
+p{
+	line-height: 160%;
+	strong{
+		font-weight: 600
+	}
+	a{
+		color: inherit;
+		text-decoration: none;
+		position: relative;
+		transition: border-bottom 0.3s ease;
+		border-bottom: 1px solid transparent;
+		&:hover {
+			border-bottom: 1px solid var(--color-white);
+		}
+	}
+}
+.has {
+	&-size {
+		&-t1 {			
+			@extend #{'.font-t1'};
+		}
+		&-t2 {
+			@extend #{'.font-t2'};
+		}
+		&-t3 {
+			@extend #{'.font-t3'};
+		}
+		&-t3-dest {
+			@extend #{'.font-t3-dest'};
+		}
+		&-t4 {
+			@extend #{'.font-t4'};
+		}
+		&-menu {
+			@extend #{'.font-menu'};
+		}
+	}
+}
+
+.content {
+	/* background-position: bottom right; */
+  	background-repeat: no-repeat; 
+  	/* background-size: auto 100%;  */
+	/* background-size: contain; */
+
+	&.decoration {
+		padding-top: rem(157);
+		clip-path: polygon(0% 7%,100% 0,100% 100%,0 100%,0 38%);
+	}
+}
+
+[class*=" justify-between"] {
+	p {
+		margin-bottom: 0;
+	}
+}
+
+body {
+	&.blog {
+		background-color: var(--color-pastel);
+	}
+
+	.header {
+		background-color: var(--color-white);
+	}
+}
+
+@include max-width(md) {
+  div[style*="background-image"] {
+    background-image: none !important;
+  }
+}
+
+.home{
+	.header	{
+		background-color: var(--color-green);
+		.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::after, .hamburger.is-active .hamburger-inner::before, .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before{
+			background-color: #FFF;
+		}
+	}
+	.menu {
+		li {
+			a{
+			color: var(--color-white);
+			border-bottom: 1px solid transparent;
+
+			&:hover {
+				border-bottom: 1px solid var(--color-white);
+			}
+			}
+		}
+	}
+}

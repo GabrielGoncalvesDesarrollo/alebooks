@@ -1,0 +1,138 @@
+/* @use 'buttons' as *; */
+@use 'config' as *;
+@use 'util' as *;
+@use 'tools' as *;
+@use 'fonts' as *;
+
+.bg {
+	&-pastel {
+		background-color: var(--color-pastel);
+	}
+	&-white {
+		background-color: var(--color-white);
+	}
+
+	&-light-grey {
+		background-color: var(--color-light-grey);
+	}
+
+	&-green {
+		background-color: var(--color-green);
+	}
+
+	&-light-green {
+		background-color: var(--color-light-green);
+	}
+
+
+	
+	&-color {
+		&-white {
+			background-color: var(--color-white);
+		}
+		&-light-grey {
+			background-color: var(--color-light-grey);
+		}
+		&-green {
+			background-color: var(--color-green);
+		}
+		&-light-green {
+			background-color: var(--color-light-green);
+		}
+		&-pastel {
+			background-color: var(--color-pastel);
+		}
+	}
+	
+}
+
+
+.color {
+	&-pastel {
+		color: var(--color-pastel);
+	}
+	&-black
+	{
+		color: var(--color-black-b);
+	}
+	&-green
+	{
+		color: var(--color-green);
+	}
+	&-light-grey
+	{
+		color: var(--color-light-grey);
+	}
+}
+
+.mask-left{
+	border: 2px solid var(--color-black);
+	border-radius: 20px;
+	p{
+		font-weight: 600;
+		margin: 0
+	}
+}
+
+.border-Corner-top-right{
+	border-top-right-radius: 120px;
+}
+.border-Corner-top-left{
+	border-top-left-radius: 120px;
+}
+.border-Corner-bottom-right{
+	border-bottom-right-radius: 120px;
+}
+.border-Corner-bottom-left{
+	border-bottom-left-radius: 120px;
+}
+
+.lesserborder-Corner-top-right{
+	border-top-right-radius: 60px;
+}
+.lesserborder-Corner-top-left{
+	border-top-left-radius: 60px;
+}
+.lesserborder-Corner-bottom-right{
+	border-bottom-right-radius: 60px;
+}
+.lesserborder-Corner-bottom-left{
+	border-bottom-left-radius: 60px;
+}
+.map{
+	iframe{
+		border-radius: 50px 0px 50px 0px;
+	}
+}
+.overFlowed{
+	overflow: hidden;
+}
+.scale{
+	&-image{
+		transition: all 300ms ease;
+		&:hover{
+			scale: 1.1;
+		}
+		img{
+      		height: auto;
+		}
+		div {
+      		overflow: hidden;
+    	}
+	}
+}
+
+.fix-image{
+	img{
+		width: auto !important;
+	}
+}
+
+.padding-Right-Left{
+	@include max-width(lg){
+		margin: rem(50) rem(200) rem(50) rem(200);
+	}
+	@include max-width(sm){
+		margin: rem(50) rem(0) rem(50) rem(0);
+	}
+}

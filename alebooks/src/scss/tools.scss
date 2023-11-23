@@ -1,0 +1,61 @@
+@use 'config' as *;
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+
+$xs: 20rem;
+$sm: 48rem;
+$md: 64rem;
+$lg: 75rem;
+$xl: 90rem;
+
+
+$browser-context: 16; // Default
+$vw-viewport: 1440;
+$vh-viewport: 900;
+
+@function get-vw($font) {
+    $vw-context: $vw-viewport * 0.01 * 1px;
+    @return calc($font / $vw-context) * 1vw;
+    @return $font;
+}
+
+@function get-vh($font) {
+    $vh-context: $vh-viewport * 0.01 * 1px;
+    @return calc($font / $vh-context) * 1vh;
+    @return $font;
+}
+
+@function em($pixels, $context: $browser-context) {
+    @return #{calc($pixels/$context)}em;
+}
+
+@function rem($pixels, $context: $browser-context) {
+    @return #{calc($pixels/$context)}rem;
+}
+
+
+@function has-class-at-parent-level($parent, $class, $level) {
+  $hasParent: false;
+  $currentParent: &;
+  $stopLoop: false;
+
+  @for $i from 1 through $level {
+    @if $currentParent == null {
+      @return $hasParent;
+    }
+
+    @if str-index($currentParent, $parent) {
+      $hasParent: true;
+
+      @if index($currentParent, $class) {
+        $stopLoop: true;
+      }
+    }
+
+    $currentParent: parent selector of $currentParent;
+  }
+
+  @return $hasParent and $stopLoop;
+}
