@@ -2,11 +2,6 @@
 	die('Direct access not permited.');
 }
 
-$twitter = get_field('_o_twitter', 'option');
-$instagram = get_field('_o_instagram', 'option');
-$link_boton = get_field('_o_header_link', 'option');
-$link_boton_title = get_field('_o_header_title', 'option');
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes() ?>>
@@ -29,13 +24,13 @@ $link_boton_title = get_field('_o_header_title', 'option');
 					if (in_array('home', $page_classes)) {
 					?>
 						<div class="col-8 col-3@lg header__logo">
-								<a href="<?php echo home_url('/') ?>"><img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header-white.svg" alt="Logo aliciaruiz"></a>
+								<a href="<?php echo home_url('/') ?>"><img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header.svg" alt="Logo alebooks"></a>
 							</div>
 					<?php } else { ?>
 						<div class="col-8 col-3@lg header__logo">
 							<a href="<?php echo home_url('/') ?>" class="logo-link">
-								<img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header.svg" alt="Logo aliciaruiz" class="normal-logo">
-								<img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header-white.svg" alt="Logo aliciaruiz" class="white-logo">
+								<img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header.svg" alt="Logo alebooks" class="normal-logo">
+								<img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header.svg" alt="Logo alebooks" class="white-logo">
 							</a>
 						</div>
 					<?php } ?>

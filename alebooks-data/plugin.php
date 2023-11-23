@@ -36,6 +36,7 @@
 		include_once ART_DATA_PATH . 'inc/acf-builder/autoload.php';
 		include_once ART_DATA_PATH . 'inc/options/options.php';
 		include_once ART_DATA_PATH . 'inc/metas/meta-footer.php';
+		include_once ART_DATA_PATH . 'inc/metas/meta-rrss.php';
 
 	}
 

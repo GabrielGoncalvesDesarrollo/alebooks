@@ -17,8 +17,8 @@
 		'xl': '95%'
 	),
 	$font-family:(
-		 'primary': 'Montserrat, sans-serif',
-		 'secondary': 'Playfair Display, sans-serif',
+		 'primary': 'Albert Sans, sans-serif',
+		 'secondary': 'Albert Sans, sans-serif',
 	),
 	$colors:(
 		'default':(
@@ -26,16 +26,13 @@
 				'base': '0, 0%, 0%'
 			),
 			'black': (
-				'base': '60, 3%, 17%'
+				'base': '260, 12%, 10%'
 			),
 			'black-b': (
 				'base': '0, 0%, 0%'
 			),
 			'white': (
 				'base': '0, 0%, 100%'
-			),
-			'pastel':(
-				'base': '42, 54%, 95%',
 			),
 			'dark-grey':(
 				'base': '274, 11%, 28%',
@@ -46,15 +43,10 @@
 			'light-grey':(
 				'base': '0, 0%, 85%',
 			),
-			'green':(
-				'base': '115, 41%, 34%',
+			'red':(
+				'base': '4, 87%, 56%',
 			),
-			'light-green':(
-				'base': '160, 50%, 93%',
-			),
-			'dark-green':(
-				'base': '165, 76%, 25%',
-			),
+
 		)
 	),
 	$font-size: (

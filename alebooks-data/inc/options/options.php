@@ -5,8 +5,8 @@ if( function_exists('acf_add_options_page') ) :
 	function add_acf_menu_pages(){
 
         acf_add_options_page(array(
-            'page_title'      => 'Aliciaruiz config',
-            'menu_title'      => 'Aliciaruiz config',
+            'page_title'      => 'alebooks config',
+            'menu_title'      => 'alebooks config',
             'menu_slug'       => 'theme-options',
             'capability'      => 'manage_options',
             'position'        => 61.1,
@@ -37,6 +37,12 @@ if( function_exists('acf_add_options_page') ) :
             'parent_slug' => 'theme-options',
             'menu_slug'   => 'footer-options'
         ));
+         acf_add_options_sub_page(array(
+            'page_title'  => 'Redes Sociales',
+            'menu_title'  => 'Redes sociales',
+            'parent_slug' => 'theme-options',
+            'menu_slug'   => 'rrss-options'
+        )); 
         
         /* acf_add_options_sub_page(array(
             'page_title'  => 'Programas',

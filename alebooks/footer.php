@@ -2,9 +2,8 @@
 	die('Direct access not permited.');
 }
 
-$contact  = get_field('_o_contact_data', 'option');
-$horario  = get_field('_o_contact_horario', 'option');
-
+$instagram = get_field('_o_instagram', 'option');
+$facebook = get_field('_o_facebook', 'option');
 
 ?>
 </main>
@@ -12,23 +11,11 @@ $horario  = get_field('_o_contact_horario', 'option');
 <footer class="footer">
 	<div class="container max-width-xl pt-md pb-md">
 		<div class="grid gap-md">
-			<div class="col-12 col-12@md col-12@lg">
-				<a href="<?php echo home_url('/') ?>"><img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-footer.svg" alt="<?php echo __('honne', 'honne') ?>"></a>
+			<div class="col-12 col-12@sm col-3@md col-3@lg">
+				<a href="<?php echo home_url('/') ?>"><img src="<?php echo ART_THEME_CSS ?>/assets/images/logo_footer.svg" alt="<?php echo __('alebooks', 'alebooks') ?>"></a>
 			</div>
 
-			<div class="grid gap-md flexed">
-			<div class="col-12 col-6@sm col-6@md col-12@lg">
-				<h2>Horario de atención al público</h2>
-				<?php echo $horario ?>
-			</div>
-			<div class="col-12 col-6@sm col-6@md col-12@lg">
-				<h2>Contacto</h2>
-				<?php echo $contact ?>
-			</div>
-			</div>
-
-			<div class="col-12 col-6@sm col-6@md col-2@lg">
-				<h2>Notaría</h2>
+			<div class="col-12 col-6@sm col-3@md col-3@lg">
 				<div class="text__content">
 					<?php
 					wp_nav_menu(
@@ -45,9 +32,18 @@ $horario  = get_field('_o_contact_horario', 'option');
 					);
 					?>
 				</div>
+				<div class="col-12 col-12@sm col-12@md col-12@lg">
+					<p>Método de pago</p>
+					<p>TRANSFERENCIA BANCARIA</p>
+					<div class="col-6 col-6@sm col-6@md col-6@lg logos">
+						<img src="<?php echo ART_THEME_CSS ?>/assets/images/Visa_Logo.svg" alt="<?php echo __('Visa Logo alebooks', 'Visa Logo alebooks') ?>">
+					</div>
+					<div class="col-6 col-6@sm col-6@md col-6@lg logos">
+						<img src="<?php echo ART_THEME_CSS ?>/assets/images/mastercard_logo.svg" alt="<?php echo __('Mastercard alebooks', 'Mastercard alebooks') ?>">
+					</div>
+				</div>
 			</div>
-			<div class="col-12 col-6@sm col-6@md col-3@lg">
-				<h2>Legal</h2>
+			<div class="col-12 col-6@sm col-3@md col-3@lg">
 				<div class="text__content">
 					<?php
 					wp_nav_menu(
@@ -65,6 +61,16 @@ $horario  = get_field('_o_contact_horario', 'option');
 					?>
 				</div>
 			</div>
+			<div class="col-12 col-12@sm col-3@md col-3@lg footer__rrss">
+				<ul class="menu-rrss">
+					<?php if (!empty($facebook)) : ?>
+						<li><a href="<?php echo $facebook ?>" title="<?php echo __('Facebook', 'alebooks') ?>" target="_blank"><img src="<?php echo ART_THEME_CSS ?>/assets/images/facebook_logo.svg" alt="Facebook"></a></li>
+					<?php endif; ?>
+					<?php if (!empty($instagram)) : ?>
+						<li><a href="<?php echo $instagram ?>" title="<?php echo __('Instagram', 'alebooks') ?>" target="_blank"><img src="<?php echo ART_THEME_CSS ?>/assets/images/instagram_logo.svg" alt="Instagram"></a></li>
+					<?php endif; ?>
+				</ul>
+			</div>
 	</div>
 	</div>
 </footer>
@@ -78,7 +84,7 @@ $horario  = get_field('_o_contact_horario', 'option');
 				<img src="<?php echo ART_THEME_CSS ?>/assets/images/footer_text.svg" alt="Footer Text">
 			</div>
 			<ul>
-				<li><img src="<?php echo ART_THEME_CSS ?>/assets/images/gob-esp.svg" alt="Gobierno de españa"></li>
+				<li><img src="<?php echo ART_THEME_CSS ?>/assets/images/gob_es.svg" alt="Gobierno de españa"></li>
 				<li><img src="<?php echo ART_THEME_CSS ?>/assets/images/red-es.svg" alt="Red.es"></li>
 				<li><img src="<?php echo ART_THEME_CSS ?>/assets/images/kit-digital.svg" alt="Kit digital"></li>
 				<li><img src="<?php echo ART_THEME_CSS ?>/assets/images/R.svg" alt="R"></li>

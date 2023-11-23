@@ -4,19 +4,16 @@
 @use 'fonts' as *;
 
 footer {
-	background-color: var(--color-green);
+	background-color: var(--color-black);
 	padding-top: rem(60);
-
-	.grid{
-		&.flexed{
-			flex-direction: row;
-			width: auto;
-			@include max-width(lg) {
-			width: 100%;
-			}
+	.logos
+	{
+		display: inline-flex;
+		margin-top: rem(20);
+		img{
+			height: rem(30);
 		}
 	}
-
 	h2 {
 		@extend #{'.font-body'};
 		color: var(--color-white);
@@ -26,41 +23,31 @@ footer {
 	}
 	
 	p{
-		line-height: 160%;
 		@extend #{'.font-menu'};
 		color: var(--color-white);
+		margin-bottom: 0;
 	}
 	a{
 		@extend #{'.font-menu'};
 		color: var(--color-white);
-		font-weight: 400;
+		font-weight: 500;
 		text-decoration: none;
 		position: relative;
-		transition: border-bottom 0.3s ease;
-		border-bottom: 1px solid transparent;
-
-		&:hover {
-			border-bottom: 1px solid var(--color-white);
-		}
+		@extend #{'.style_underline'};
 	}
 
 	[role="menu"]{
 		display: flex;
 		flex-direction: column;
-		gap: rem(5);
+		gap: rem(0);
 
 		a{
 		@extend #{'.font-menu'};
 		color: var(--color-white);
-		font-weight: 400;
+		font-weight: 500;
 		text-decoration: none;
 		position: relative;
-		transition: border-bottom 0.3s ease;
-		border-bottom: 1px solid transparent;
-
-		&:hover {
-			border-bottom: 1px solid var(--color-white);
-		}
+		@extend #{'.style_underline'};
     	}
 	}
 }
@@ -70,15 +57,18 @@ footer {
 	.text{
 		&__content{
 			color: var(--color-white);
+			margin-bottom: rem(20);
 		}
 	}
-	
-	&__contact {
-		@extend #{'.font-body'};
-		color: var(--color-black);
-
-		.content {
-			margin-top: var(--space-xs);
+	&__rrss {
+		ul {
+			display: flex;
+			flex-direction: row;
+			gap: var(--space-xs);
+			justify-content: flex-end;
+			@include max-width(md) {
+				justify-content: center;
+			}
 		}
 	}
 }
@@ -87,7 +77,7 @@ footer {
 	&__kit {
     margin-top: 0rem !important;
     padding: 2rem;
-    background-color: var(--color-white);
+    background-color: var(--color-black);
     ul {
       margin: 0;
       padding: 0;

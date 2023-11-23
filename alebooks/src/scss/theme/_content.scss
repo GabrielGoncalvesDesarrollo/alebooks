@@ -132,7 +132,7 @@ body {
 
 .home{
 	.header	{
-		background-color: var(--color-green);
+		background-color: var(--color-white);
 		.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::after, .hamburger.is-active .hamburger-inner::before, .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before{
 			background-color: #FFF;
 		}
