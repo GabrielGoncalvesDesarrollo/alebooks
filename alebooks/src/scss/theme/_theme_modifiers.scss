@@ -5,27 +5,12 @@
 @use 'fonts' as *;
 
 .bg {
-	&-pastel {
-		background-color: var(--color-pastel);
-	}
 	&-white {
 		background-color: var(--color-white);
 	}
-
 	&-light-grey {
 		background-color: var(--color-light-grey);
 	}
-
-	&-green {
-		background-color: var(--color-green);
-	}
-
-	&-light-green {
-		background-color: var(--color-light-green);
-	}
-
-
-	
 	&-color {
 		&-white {
 			background-color: var(--color-white);
@@ -33,31 +18,13 @@
 		&-light-grey {
 			background-color: var(--color-light-grey);
 		}
-		&-green {
-			background-color: var(--color-green);
-		}
-		&-light-green {
-			background-color: var(--color-light-green);
-		}
-		&-pastel {
-			background-color: var(--color-pastel);
-		}
 	}
-	
 }
 
-
 .color {
-	&-pastel {
-		color: var(--color-pastel);
-	}
 	&-black
 	{
 		color: var(--color-black-b);
-	}
-	&-green
-	{
-		color: var(--color-green);
 	}
 	&-light-grey
 	{

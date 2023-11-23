@@ -58,9 +58,8 @@
 	}
 }
 p{
-	line-height: 160%;
 	strong{
-		font-weight: 600
+		font-weight: 700
 	}
 	a{
 		color: inherit;
@@ -92,6 +91,9 @@ p{
 		}
 		&-menu {
 			@extend #{'.font-menu'};
+		}
+		&-banner {
+			@extend #{'.font-banner'};
 		}
 	}
 }
@@ -130,7 +132,7 @@ body {
   }
 }
 
-.home{
+/*.home{
 	.header	{
 		background-color: var(--color-white);
 		.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::after, .hamburger.is-active .hamburger-inner::before, .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before{
@@ -149,4 +151,4 @@ body {
 			}
 		}
 	}
-}
+}*/
