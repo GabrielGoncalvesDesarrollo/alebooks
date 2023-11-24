@@ -26,7 +26,7 @@ class ColumnOptionsComponent extends Component {
 
 	render() {
 		const { attributes, setAttributes } = this.props;
-		const { borderCornerBottomRight, borderCornerBottomLeft, borderCornerTopLeft, borderCornerTopRight, overFlowed } = attributes;
+		const { overFlowed } = attributes;
 
 		let allow = false;
 
@@ -64,46 +64,6 @@ class ColumnOptionsComponent extends Component {
 						}}
 					/>
 					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							className="art-mt-xs"
-							label={__("Redondeado a la columna (superior derecho)")}
-							checked={borderCornerTopRight}
-							onChange={(newValue) => {
-								setAttributes({ borderCornerTopRight: newValue });
-							}}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							className="art-mt-xs"
-							label={__("Redondeado a la columna (superior izquierdo)")}
-							checked={borderCornerTopLeft}
-							onChange={(newValue) => {
-								setAttributes({ borderCornerTopLeft: newValue });
-							}}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							className="art-mt-xs"
-							label={__("Redondeado a la columna (inferior izquierdo)")}
-							checked={borderCornerBottomLeft}
-							onChange={(newValue) => {
-								setAttributes({ borderCornerBottomLeft: newValue });
-							}}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							className="art-mt-xs"
-							label={__("Redondeado a la columna (inferior derecho)")}
-							checked={borderCornerBottomRight}
-							onChange={(newValue) => {
-								setAttributes({ borderCornerBottomRight: newValue });
-							}}
-						/>
-					</PanelRow>
 				</PanelBody>
 
 			</InspectorControls>
@@ -119,22 +79,6 @@ function addAttributes(settings) {
 			attributes: {
 				...attributes,
 				maskLeft: {
-					type: 'boolean',
-					default: false
-				},
-				borderCornerTopRight: {
-					type: 'boolean',
-					default: false
-				},
-				borderCornerTopLeft: {
-					type: 'boolean',
-					default: false
-				},
-				borderCornerBottomLeft: {
-					type: 'boolean',
-					default: false
-				},
-				borderCornerBottomRight: {
 					type: 'boolean',
 					default: false
 				},

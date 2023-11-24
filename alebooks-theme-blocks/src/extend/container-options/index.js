@@ -21,8 +21,9 @@ const allowedBlocks = [
 const colors = [
 	{ name: "white", color: "#FFFFFF" },
 	{ name: "light-grey", color: "#F8F7F7" },
-	{ name: "pastel", color: "#FAF6ED" },
-	{ name: "green", color: "#397A33" },
+	{ name: "black", color: "#1C1B1B" },
+	{ name: "red", color: "#F0392D" },
+	{ name: "black-b", color: "#000000" },
 ];
 
 
@@ -43,7 +44,7 @@ class ContainerOptionsComponent extends Component {
 
 	render() {
 		const { attributes, setAttributes } = this.props;
-		const { cbgColor, cbgColorName, lesserborderCornerBottomRight, lesserborderCornerBottomLeft, lesserborderCornerTopLeft, lesserborderCornerTopRight, paddingRightLeft } = attributes;
+		const { cbgColor, cbgColorName, paddingRightLeft } = attributes;
 
 		let allow = false;
 
@@ -71,46 +72,6 @@ class ContainerOptionsComponent extends Component {
 						initalOpenPanel = !initalOpenPanel;
 					}}
 				>
-					<PanelRow>
-						<ToggleControl
-							className="art-mt-xs"
-							label={__("Redondeado a la columna (superior derecho)")}
-							checked={lesserborderCornerTopRight}
-							onChange={(newValue) => {
-								setAttributes({ lesserborderCornerTopRight: newValue });
-							}}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							className="art-mt-xs"
-							label={__("Redondeado a la columna (superior izquierdo)")}
-							checked={lesserborderCornerTopLeft}
-							onChange={(newValue) => {
-								setAttributes({ lesserborderCornerTopLeft: newValue });
-							}}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							className="art-mt-xs"
-							label={__("Redondeado a la columna (inferior izquierdo)")}
-							checked={lesserborderCornerBottomLeft}
-							onChange={(newValue) => {
-								setAttributes({ lesserborderCornerBottomLeft: newValue });
-							}}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							className="art-mt-xs"
-							label={__("Redondeado a la columna (inferior derecho)")}
-							checked={lesserborderCornerBottomRight}
-							onChange={(newValue) => {
-								setAttributes({ lesserborderCornerBottomRight: newValue });
-							}}
-						/>
-					</PanelRow>
 					<PanelRow>
 						<ToggleControl
 							className="art-mt-xs"
@@ -170,22 +131,6 @@ function addAttributes(settings) {
 				cbgColorName: {
 					type: 'string',
 					default: 'false'
-				},
-				lesserborderCornerTopRight: {
-					type: 'boolean',
-					default: false
-				},
-				lesserborderCornerTopLeft: {
-					type: 'boolean',
-					default: false
-				},
-				lesserborderCornerBottomLeft: {
-					type: 'boolean',
-					default: false
-				},
-				lesserborderCornerBottomRight: {
-					type: 'boolean',
-					default: false
 				},
 				paddingRightLeft: {
 					type: 'boolean',

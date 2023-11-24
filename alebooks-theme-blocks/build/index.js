@@ -1915,11 +1915,20 @@ __webpack_require__.r(__webpack_exports__);
 let initalOpenPanel = false;
 const allowedBlocks = ['wp-artsolut-blocks/column'];
 let colors = [{
-  name: 'pastel',
-  color: '#FFEFCF'
+  name: "white",
+  color: "#FFFFFF"
 }, {
-  name: "green",
-  color: "#397A33"
+  name: "light-grey",
+  color: "#F8F7F7"
+}, {
+  name: "black",
+  color: "#1C1B1B"
+}, {
+  name: "red",
+  color: "#F0392D"
+}, {
+  name: "black-b",
+  color: "#000000"
 }];
 function removeClasses(classNamesString, classToken) {
   return classnames_dedupe__WEBPACK_IMPORTED_MODULE_1___default()(classNamesString.split(' ')).split(' ').filter(className => !className.startsWith(classToken)).join(' ');
@@ -2155,10 +2164,6 @@ class ColumnOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE
       setAttributes
     } = this.props;
     const {
-      borderCornerBottomRight,
-      borderCornerBottomLeft,
-      borderCornerTopLeft,
-      borderCornerTopRight,
       overFlowed
     } = attributes;
     let allow = false;
@@ -2187,42 +2192,6 @@ class ColumnOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE
           overFlowed: newValue
         });
       }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Redondeado a la columna (superior derecho)"),
-      checked: borderCornerTopRight,
-      onChange: newValue => {
-        setAttributes({
-          borderCornerTopRight: newValue
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Redondeado a la columna (superior izquierdo)"),
-      checked: borderCornerTopLeft,
-      onChange: newValue => {
-        setAttributes({
-          borderCornerTopLeft: newValue
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Redondeado a la columna (inferior izquierdo)"),
-      checked: borderCornerBottomLeft,
-      onChange: newValue => {
-        setAttributes({
-          borderCornerBottomLeft: newValue
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Redondeado a la columna (inferior derecho)"),
-      checked: borderCornerBottomRight,
-      onChange: newValue => {
-        setAttributes({
-          borderCornerBottomRight: newValue
-        });
-      }
     }))));
   }
 }
@@ -2236,22 +2205,6 @@ function addAttributes(settings) {
       attributes: {
         ...attributes,
         maskLeft: {
-          type: 'boolean',
-          default: false
-        },
-        borderCornerTopRight: {
-          type: 'boolean',
-          default: false
-        },
-        borderCornerTopLeft: {
-          type: 'boolean',
-          default: false
-        },
-        borderCornerBottomLeft: {
-          type: 'boolean',
-          default: false
-        },
-        borderCornerBottomRight: {
           type: 'boolean',
           default: false
         },
@@ -3131,11 +3084,14 @@ const colors = [{
   name: "light-grey",
   color: "#F8F7F7"
 }, {
-  name: "pastel",
-  color: "#FAF6ED"
+  name: "black",
+  color: "#1C1B1B"
 }, {
-  name: "green",
-  color: "#397A33"
+  name: "red",
+  color: "#F0392D"
+}, {
+  name: "black-b",
+  color: "#000000"
 }];
 function getColorName(colorValue) {
   const color = colors.find(c => c.color === colorValue);
@@ -3157,10 +3113,6 @@ class ContainerOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MOD
     const {
       cbgColor,
       cbgColorName,
-      lesserborderCornerBottomRight,
-      lesserborderCornerBottomLeft,
-      lesserborderCornerTopLeft,
-      lesserborderCornerTopRight,
       paddingRightLeft
     } = attributes;
     let allow = false;
@@ -3181,42 +3133,6 @@ class ContainerOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MOD
         initalOpenPanel = !initalOpenPanel;
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Redondeado a la columna (superior derecho)"),
-      checked: lesserborderCornerTopRight,
-      onChange: newValue => {
-        setAttributes({
-          lesserborderCornerTopRight: newValue
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Redondeado a la columna (superior izquierdo)"),
-      checked: lesserborderCornerTopLeft,
-      onChange: newValue => {
-        setAttributes({
-          lesserborderCornerTopLeft: newValue
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Redondeado a la columna (inferior izquierdo)"),
-      checked: lesserborderCornerBottomLeft,
-      onChange: newValue => {
-        setAttributes({
-          lesserborderCornerBottomLeft: newValue
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Redondeado a la columna (inferior derecho)"),
-      checked: lesserborderCornerBottomRight,
-      onChange: newValue => {
-        setAttributes({
-          lesserborderCornerBottomRight: newValue
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
       className: "art-mt-xs",
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("espaciado a los lados"),
       checked: paddingRightLeft,
@@ -3269,22 +3185,6 @@ function addAttributes(settings) {
         cbgColorName: {
           type: 'string',
           default: 'false'
-        },
-        lesserborderCornerTopRight: {
-          type: 'boolean',
-          default: false
-        },
-        lesserborderCornerTopLeft: {
-          type: 'boolean',
-          default: false
-        },
-        lesserborderCornerBottomLeft: {
-          type: 'boolean',
-          default: false
-        },
-        lesserborderCornerBottomRight: {
-          type: 'boolean',
-          default: false
         },
         paddingRightLeft: {
           type: 'boolean',
@@ -5288,20 +5188,20 @@ __webpack_require__.r(__webpack_exports__);
 let initalOpenPanel = false;
 const allowedBlocks = ["core/paragraph", "core/heading"];
 const colors = [{
-  name: "pastel",
-  color: "#FAF6ED"
-}, {
   name: "white",
-  color: "#ffffff"
-}, {
-  name: "black",
-  color: "#000000"
-}, {
-  name: "green",
-  color: "#397A33"
+  color: "#FFFFFF"
 }, {
   name: "light-grey",
-  color: "#2D2D2A"
+  color: "#F8F7F7"
+}, {
+  name: "black",
+  color: "#1C1B1B"
+}, {
+  name: "red",
+  color: "#F0392D"
+}, {
+  name: "black-b",
+  color: "#000000"
 }];
 function getColorName(colorValue) {
   const color = colors.find(c => c.color === colorValue);

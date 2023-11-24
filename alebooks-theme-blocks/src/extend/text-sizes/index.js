@@ -24,11 +24,11 @@ let initalOpenPanel = false;
 const allowedBlocks = ["core/paragraph", "core/heading"];
 
 const colors = [
-  { name: "pastel", color: "#FAF6ED" },
-  { name: "white", color: "#ffffff" },
-  { name: "black", color: "#000000" },
-  { name: "green", color: "#397A33" },
-  { name: "light-grey", color: "#2D2D2A" },
+  { name: "white", color: "#FFFFFF" },
+	{ name: "light-grey", color: "#F8F7F7" },
+	{ name: "black", color: "#1C1B1B" },
+	{ name: "red", color: "#F0392D" },
+	{ name: "black-b", color: "#000000" },
 ];
 
 function getColorName(colorValue) {

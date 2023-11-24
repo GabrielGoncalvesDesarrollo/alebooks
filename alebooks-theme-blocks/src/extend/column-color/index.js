@@ -17,8 +17,11 @@ const allowedBlocks = [
 
 
 let colors = [
-	{ name: 'pastel', color: '#FFEFCF' },
-	{ name: "green", color: "#397A33" },
+	{ name: "white", color: "#FFFFFF" },
+	{ name: "light-grey", color: "#F8F7F7" },
+	{ name: "black", color: "#1C1B1B" },
+	{ name: "red", color: "#F0392D" },
+	{ name: "black-b", color: "#000000" },
 ];
 
 function removeClasses(classNamesString, classToken) {
