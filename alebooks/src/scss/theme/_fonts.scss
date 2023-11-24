@@ -2,6 +2,7 @@
 @use 'util' as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600;7..72,700&display=swap');
 
 @font-face {
   font-family: 'CabinetGrotesk';
@@ -15,21 +16,28 @@
 
 .font{
 	&-t1 {
-		font-family: var(--font-secondary);
+		font-family: var(--font-primary);
 		font-size: var(--text-t1);
 		/* margin-bottom: var(--space-2xs); */
     font-weight: 700;
-    line-height: 120%;
+    line-height: 100%;
+	}
+  &-t1dest {
+		font-family: var(--font-secondary);
+		font-size: var(--text-t1);
+    font-weight: 300;
+    line-height: 100%;
 	}
 	&-t2 {
-		font-family: var(--font-secondary);
+		font-family: var(--font-primary);
 		font-size: var(--text-t2);
 		/* margin-bottom: var(--space-2xs); */
     line-height: 120%;
+    font-weight: 700;
 	}
 
   &-t3 {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: var(--text-t3);
     /* margin-bottom: var(--space-2xs); */
 		font-weight: 400;
@@ -46,7 +54,7 @@
     font-family: var(--font-primary);
     font-size: var(--text-t4);
     /* margin-bottom: var(--space-2xs); */
-    font-weight: 600;
+    font-weight: 700;
     line-height: 120%;
   }
   
@@ -62,6 +70,11 @@
   &-banner {
     font-family: var(--font-primary);
     font-size: var(--text-banner);
+  }
+  &-t5 {
+    font-family: var(--font-secondary);
+    font-size: var(--text-t5);
+    font-weight: 300;
   }
   &-menu-footer {
     font-family: var(--font-primary);

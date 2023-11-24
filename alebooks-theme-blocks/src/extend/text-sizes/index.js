@@ -47,7 +47,7 @@ class TextOptionsComponent extends Component {
 
   render() {
     const { attributes, setAttributes } = this.props;
-    const { medium, t1, t2, t3,t3dest,  t4, banner, textColor } = attributes;
+    const { medium, t1, t2, t3,t3dest,  t4, t5, t1dest, banner, textColor } = attributes;
 
     let allow = false;
 
@@ -84,6 +84,17 @@ class TextOptionsComponent extends Component {
                 checked={t1}
                 onChange={(newValue) => {
                   setAttributes({ t1: newValue });
+                }}
+              />
+            </PanelRow>
+
+             <PanelRow>
+              <ToggleControl
+                className="art-mt-xs"
+                label={__("Tamaño H1 Dest")}
+                checked={t1dest}
+                onChange={(newValue) => {
+                  setAttributes({ t1dest: newValue });
                 }}
               />
             </PanelRow>
@@ -128,6 +139,17 @@ class TextOptionsComponent extends Component {
                 checked={t4}
                 onChange={(newValue) => {
                   setAttributes({ t4: newValue });
+                }}
+              />
+            </PanelRow>
+
+            <PanelRow>
+              <ToggleControl
+                className="art-mt-xs"
+                label={__("Tamaño H5")}
+                checked={t5}
+                onChange={(newValue) => {
+                  setAttributes({ t5: newValue });
                 }}
               />
             </PanelRow>
@@ -184,6 +206,10 @@ function addAttributes(settings) {
           type: "boolean",
           default: false
         },
+        t1dest: {
+          type: "boolean",
+          default: false
+        },
         t2: {
           type: "boolean",
           default: false
@@ -235,10 +261,12 @@ const withTextOptionsComponent = createHigherOrderComponent(
 
       let classes = [];
       classes.push({ "has-size-t1": attributes.t1 });
+      classes.push({ "has-size-t1dest": attributes.t1dest });
       classes.push({ "has-size-t2": attributes.t2 });
       classes.push({ "has-size-t3": attributes.t3 });
       classes.push({ "has-size-t3-dest": attributes.t3dest });
       classes.push({ "has-size-t4": attributes.t4 });
+      classes.push({ "has-size-t5": attributes.t5 });
       classes.push({ "has-size-banner": attributes.banner });
 
       let colorName = getColorName(attributes.textColor);
@@ -272,10 +300,12 @@ function applyExtraClass(extraProps, blockType, attributes) {
 
   let classes = [];
   classes.push({ "has-size-t1": attributes.t1 });
+  classes.push({ "has-size-t1dest": attributes.t1dest });
   classes.push({ "has-size-t2": attributes.t2 });
   classes.push({ "has-size-t3": attributes.t3 });
   classes.push({ "has-size-t3-dest": attributes.t3dest });
   classes.push({ "has-size-t4": attributes.t4 });
+  classes.push({ "has-size-t5": attributes.t5 });
   classes.push({ "has-size-banner": attributes.banner });
   
 

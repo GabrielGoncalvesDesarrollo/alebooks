@@ -18,10 +18,9 @@ const allowedBlocks = [
 ];
 
 const colors = [
-	{ name: 'pastel', color: '#FFEFCF' },
 	{ name: 'white', color: '#FFFFFF' },
 	{ name: 'black', color: '#000000' },
-	{ name: "green", color: "#397A33" },
+	{ name: "red", color: "#F0392D" },
 ];
 
 const iconlist = [

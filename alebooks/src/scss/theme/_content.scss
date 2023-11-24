@@ -77,6 +77,9 @@ p{
 		&-t1 {			
 			@extend #{'.font-t1'};
 		}
+		&-t1dest {			
+			@extend #{'.font-t1dest'};
+		}
 		&-t2 {
 			@extend #{'.font-t2'};
 		}
@@ -88,6 +91,9 @@ p{
 		}
 		&-t4 {
 			@extend #{'.font-t4'};
+		}
+		&-t5 {
+			@extend #{'.font-t5'};
 		}
 		&-menu {
 			@extend #{'.font-menu'};

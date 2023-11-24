@@ -39,7 +39,7 @@ footer {
 	[role="menu"]{
 		display: flex;
 		flex-direction: column;
-		gap: rem(0);
+		gap: rem(5);
 
 		a{
 		@extend #{'.font-menu'};

@@ -1701,17 +1701,14 @@ __webpack_require__.r(__webpack_exports__);
 let initalOpenPanel = false;
 const allowedBlocks = ['wp-artsolut-blocks/button'];
 const colors = [{
-  name: 'pastel',
-  color: '#FFEFCF'
-}, {
   name: 'white',
   color: '#FFFFFF'
 }, {
   name: 'black',
   color: '#000000'
 }, {
-  name: "green",
-  color: "#397A33"
+  name: "red",
+  color: "#F0392D"
 }];
 const iconlist = [{
   label: 'Flecha',
@@ -5227,6 +5224,8 @@ class TextOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0
       t3,
       t3dest,
       t4,
+      t5,
+      t1dest,
       banner,
       textColor
     } = attributes;
@@ -5255,6 +5254,15 @@ class TextOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0
       onChange: newValue => {
         setAttributes({
           t1: newValue
+        });
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
+      className: "art-mt-xs",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Tamaño H1 Dest"),
+      checked: t1dest,
+      onChange: newValue => {
+        setAttributes({
+          t1dest: newValue
         });
       }
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
@@ -5291,6 +5299,15 @@ class TextOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0
       onChange: newValue => {
         setAttributes({
           t4: newValue
+        });
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
+      className: "art-mt-xs",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Tamaño H5"),
+      checked: t5,
+      onChange: newValue => {
+        setAttributes({
+          t5: newValue
         });
       }
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
@@ -5338,6 +5355,10 @@ function addAttributes(settings) {
           type: "boolean",
           default: false
         },
+        t1dest: {
+          type: "boolean",
+          default: false
+        },
         t2: {
           type: "boolean",
           default: false
@@ -5381,6 +5402,9 @@ const withTextOptionsComponent = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_
     "has-size-t1": attributes.t1
   });
   classes.push({
+    "has-size-t1dest": attributes.t1dest
+  });
+  classes.push({
     "has-size-t2": attributes.t2
   });
   classes.push({
@@ -5391,6 +5415,9 @@ const withTextOptionsComponent = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_
   });
   classes.push({
     "has-size-t4": attributes.t4
+  });
+  classes.push({
+    "has-size-t5": attributes.t5
   });
   classes.push({
     "has-size-banner": attributes.banner
@@ -5418,6 +5445,9 @@ function applyExtraClass(extraProps, blockType, attributes) {
     "has-size-t1": attributes.t1
   });
   classes.push({
+    "has-size-t1dest": attributes.t1dest
+  });
+  classes.push({
     "has-size-t2": attributes.t2
   });
   classes.push({
@@ -5428,6 +5458,9 @@ function applyExtraClass(extraProps, blockType, attributes) {
   });
   classes.push({
     "has-size-t4": attributes.t4
+  });
+  classes.push({
+    "has-size-t5": attributes.t5
   });
   classes.push({
     "has-size-banner": attributes.banner
