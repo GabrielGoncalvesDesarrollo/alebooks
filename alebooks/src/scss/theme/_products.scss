@@ -9,12 +9,8 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-
-		img {
-			border-radius: 50%;
-		}
 	}
-
+	
 	a {
 		text-decoration: none;
 
@@ -28,6 +24,7 @@
 			margin-left: auto;
 			margin-right: auto;
 			transition: all 300ms ease;
+			text-align: center;
 
 			&:hover {
 				background: transparent;
@@ -49,7 +46,7 @@
 
 	span {
 		&.price {
-			@extend #{'.font-precio'};
+			@extend #{'.font-body'};
 			text-align: center;
 		}
 	}

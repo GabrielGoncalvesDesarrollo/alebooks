@@ -92,3 +92,72 @@ function update_cart_quantity()
 	));
 	wp_die();
 }
+
+
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
+add_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
+
+/**
+ * WooCommerce Loop Product Thumbs
+ **/
+if (!function_exists('woocommerce_template_loop_product_thumbnail')) {
+	function woocommerce_template_loop_product_thumbnail()
+	{
+		echo "<div class='product__img-wrapper'>";
+		echo woocommerce_get_product_thumbnail();
+		echo "</div>";
+	}
+}
+
+
+function art_change_related_products($args)
+{
+	// Cambia el número de productos relacionados que se mostrarán
+	$args['posts_per_page'] = 3; // Cambia este número al que desees
+
+	return $args;
+}
+
+add_filter('woocommerce_output_related_products_args', 'art_change_related_products');
+
+function art_change_related_product_heading($title)
+{
+	// Cambia el título de los productos relacionados
+	$title = 'Te puede interesar'; // Cambia este texto al que desees
+
+	return $title;
+}
+
+add_filter('woocommerce_product_related_products_heading', 'art_change_related_product_heading');
+
+
+
+function art_limita_envios($provincias)
+{
+	unset($provincias['ES']['TF']);
+	unset($provincias['ES']['GC']);
+	unset($provincias['ES']['CE']);
+	unset($provincias['ES']['ML']);
+	return $provincias;
+}
+add_filter('woocommerce_states', 'art_limita_envios');
+
+
+function custom_pre_get_posts_query($q)
+{
+
+	$tax_query = (array) $q->get('tax_query');
+
+	$tax_query[] = array(
+		'taxonomy' => 'product_cat',
+		'field' => 'slug',
+		'terms' => array('frutos-secos'), // Don't display products in the clothing category on the shop page.
+		'operator' => 'NOT IN'
+	);
+
+
+	$q->set('tax_query', $tax_query);
+}
+/* add_action('woocommerce_product_query', 'custom_pre_get_posts_query'); */
+
+add_filter('woocommerce_ship_to_different_address_checked', '__return_false');
