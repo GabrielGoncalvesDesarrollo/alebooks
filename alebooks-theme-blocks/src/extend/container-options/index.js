@@ -44,7 +44,7 @@ class ContainerOptionsComponent extends Component {
 
 	render() {
 		const { attributes, setAttributes } = this.props;
-		const { cbgColor, cbgColorName, paddingRightLeft } = attributes;
+		const { cbgColor, cbgColorName, alignCenter } = attributes;
 
 		let allow = false;
 
@@ -75,10 +75,10 @@ class ContainerOptionsComponent extends Component {
 					<PanelRow>
 						<ToggleControl
 							className="art-mt-xs"
-							label={__("espaciado a los lados")}
-							checked={paddingRightLeft}
+							label={__("centrar contenido")}
+							checked={alignCenter}
 							onChange={(newValue) => {
-								setAttributes({ paddingRightLeft: newValue });
+								setAttributes({ alignCenter: newValue });
 							}}
 						/>
 					</PanelRow>
@@ -132,7 +132,7 @@ function addAttributes(settings) {
 					type: 'string',
 					default: 'false'
 				},
-				paddingRightLeft: {
+				alignCenter: {
 					type: 'boolean',
 					default: false
 				},

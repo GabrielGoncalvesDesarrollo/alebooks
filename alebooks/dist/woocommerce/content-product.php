@@ -21,47 +21,74 @@ global $product;
 
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
-	return;
+    return;
+}
+
+if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
+    $is_low_cost = true;
+} else {
+    $is_low_cost = false;
 }
 ?>
-<div <?php wc_product_class( 'col-9@xs col-6@sm col-4@lg', $product ); ?>>
+<div <?php wc_product_class( 'col-12@xs col-6@sm col-4@lg', $product ); ?>>
+    <?php
+    /**
+     * Hook: woocommerce_before_shop_loop_item.
+     *
+     * @hooked woocommerce_template_loop_product_link_open - 10
+     */
+    do_action( 'woocommerce_before_shop_loop_item' );
+    ?>
+
+    <div class="specific-product-wrapper">
+        <?php
+        /**
+         * Hook: woocommerce_before_shop_loop_item_title.
+         *
+         * @hooked woocommerce_show_product_loop_sale_flash - 10
+         * @hooked woocommerce_template_loop_product_thumbnail - 10
+         */
+        do_action( 'woocommerce_before_shop_loop_item_title' );
+        ?>
+    </div>
+
+	<?php if ( $is_low_cost ) : ?>
+        <div class="specific-product-wrapper-lowcost">
+            LOWCOST
+        </div>
+    <?php endif; ?>
+
 	<?php
-	/**
-	 * Hook: woocommerce_before_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_open - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item' );
+        echo wc_get_product_tag_list( $product->get_id(), ', ', '<div class="products__tags">', '</div>' );
+    ?>
 
-	/**
-	 * Hook: woocommerce_before_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_show_product_loop_sale_flash - 10
-	 * @hooked woocommerce_template_loop_product_thumbnail - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item_title' );
+    <?php
+    /**
+     * Hook: woocommerce_shop_loop_item_title.
+     *
+     * @hooked woocommerce_template_loop_product_title - 10
+     */
+    do_action( 'woocommerce_shop_loop_item_title' );
+    ?>
 
-	/**
-	 * Hook: woocommerce_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_product_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_item_title' );
+    <?php
+    /**
+     * Hook: woocommerce_after_shop_loop_item_title.
+     *
+     * @hooked woocommerce_template_loop_rating - 5
+     * @hooked woocommerce_template_loop_price - 10
+     */
+    do_action( 'woocommerce_after_shop_loop_item_title' );
+    ?>
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_rating - 5
-	 * @hooked woocommerce_template_loop_price - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item_title' );
+    <?php
+    /**
+     * Hook: woocommerce_after_shop_loop_item.
+     *
+     * @hooked woocommerce_template_loop_product_link_close - 5
+     * @hooked woocommerce_template_loop_add_to_cart - 10
+     */
+    do_action( 'woocommerce_after_shop_loop_item' );
+    ?>
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_close - 5
-	 * @hooked woocommerce_template_loop_add_to_cart - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item' );
-	?>
 </div>

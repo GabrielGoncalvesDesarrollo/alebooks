@@ -22,4 +22,4 @@ if (!defined('ABSPATH')) {
 ?>
 <!-- <ul class="products grid gap-md"> -->
 	<div class="products">
-		<div class="grid gap-md gap-y-xl offset-2@xs offset-0@sm">
+		<div class="grid gap-md gap-y-xl offset-0@xs offset-0@sm">

@@ -119,13 +119,11 @@
 			span{
 				&.price {
 					@extend #{'.font-precio'};
-					font-weight: 600;
+					font-weight: 700;
 					width: 100%;
 					display: inline-block;
 					color: var(--color-black);
-					font-size: 1.25em;
 					text-align: center;
-					margin-bottom: var(--space-md);
 				}
 			}
 		}
@@ -663,7 +661,9 @@ button.wc-block-mini-cart__button {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 100%;
+	justify-content: flex-start;
+	margin-bottom: rem(20);
+	height: auto;
 	padding: 0 rem(20) 0 rem(20);
 }
 
@@ -673,8 +673,8 @@ button.wc-block-mini-cart__button {
 	div{
 		&.product {
 			.product_title {
-				@extend #{'.font-t3'};
-				font-weight: 300;
+				@extend #{'.font-t3-dest'};
+				font-weight: 400;
 				font-family: var(--font-secondary);
 			}
 
@@ -683,7 +683,6 @@ button.wc-block-mini-cart__button {
 					@extend #{'.font-precio'};
 					color: var(--color-black);
 					font-weight: 700;
-
 				}
 			}
 		}
@@ -702,6 +701,18 @@ button.wc-block-mini-cart__button {
 
 
 .products {
+	.specific-product-wrapper{
+		padding: rem(80);
+		margin-bottom: rem(20);
+		background-color: #F4F4F4;
+	}
+	.specific-product-wrapper-lowcost{
+		padding: rem(5);
+		background-color: var(--color-red);
+		color: var(--color-white);
+		@extend #{'.font-body'};
+		font-weight: 500;
+	}
 	.product {
 		
 		&__img-wrapper {
@@ -724,11 +735,25 @@ button.wc-block-mini-cart__button {
 
 	a{
 		&.button{
-			width: rem(180);
+			width: rem(170);
+			font-weight: 500;
+			&:hover{
+					background-color: var(--color-red);
+					color: var(--color-white);
+					border: solid 1px var(--color-red);
+					
+				}
+			&--white {
+				border: solid 1px var(--color-black);
+				background-color: transparent;
+				color: black;
+				font-weight: 500;
 
-			&--red {
-				border: solid 1px var(--color-red);
-				background-color: var(--color-red);
+				&:hover{
+					background-color: var(--color-red);
+					color: var(--color-white);
+					border: solid 1px var(--color-red);
+				}
 			}
 
 			&.view-product {

@@ -1701,6 +1701,9 @@ __webpack_require__.r(__webpack_exports__);
 let initalOpenPanel = false;
 const allowedBlocks = ['wp-artsolut-blocks/button'];
 const colors = [{
+  name: 'transparent',
+  color: 'transparent'
+}, {
   name: 'white',
   color: '#FFFFFF'
 }, {
@@ -1736,7 +1739,11 @@ class ButtonOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE
       classNames
     } = this.props;
     const {
-      buttonColor
+      iconName,
+      buttonColor,
+      showAsLink,
+      extendButton,
+      catButton
     } = attributes;
     let allow = false;
     const name = this.props.name;
@@ -1756,6 +1763,33 @@ class ButtonOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE
         initalOpenPanel = !initalOpenPanel;
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+      className: "art-mt-xs"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.BaseControl, {
+      label: "Icono",
+      help: "Seleccione el icono que se desa mostrar en el boton",
+      className: "art-mt-xs"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ButtonGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+      class: "art-btn-group"
+    }, iconlist.map(option => {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Button, {
+        key: option.value,
+        variant: option.value == iconName ? 'primary' : '',
+        className: classnames_dedupe__WEBPACK_IMPORTED_MODULE_1___default()({
+          'is-active': 'left' === option.value
+        }),
+        onClick: () => setAttributes({
+          iconName: option.value
+        }),
+        icon: _icons_js__WEBPACK_IMPORTED_MODULE_9__["default"][option.value],
+        label: option.label
+      }));
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Button, {
+      isDestructive: true,
+      key: "resetIcons",
+      onClick: () => setAttributes({
+        iconName: ''
+      })
+    }, "Restaurar"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
       className: "art-mt-xs"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.BaseControl, {
       label: "Colores",
@@ -1782,9 +1816,25 @@ function addAttributes(settings) {
       ...settings,
       attributes: {
         ...attributes,
+        iconName: {
+          type: 'string',
+          default: ''
+        },
         buttonColor: {
           type: 'string',
           default: ''
+        },
+        showAsLink: {
+          type: 'boolean',
+          default: false
+        },
+        extendButton: {
+          type: 'boolean',
+          default: false
+        },
+        catButton: {
+          type: 'boolean',
+          default: false
         }
       }
     };
@@ -1799,8 +1849,23 @@ const withButtonOptionsControl = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(BlockEdit, props);
   }
   const hasCustomClassName = (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.hasBlockSupport)(props.name, 'customClassName', true);
-  if (attributes.className) attributes.className = removeClasses(attributes.className, "color-");
+  if (attributes.className) {
+    attributes.className = removeClasses(attributes.className, "ico-");
+    attributes.className = removeClasses(attributes.className, "color-");
+  }
   let classes = [];
+  classes.push({
+    "aslink": attributes.showAsLink
+  });
+  classes.push({
+    "extendButton": attributes.extendButton
+  });
+  classes.push({
+    "catButton": attributes.catButton
+  });
+  if (attributes.iconName) {
+    classes.push(`ico-${attributes.iconName}`);
+  }
   let colorName = getColorName(attributes.buttonColor);
   if (colorName) {
     classes.push(`color-${colorName}`);
@@ -1816,6 +1881,18 @@ function applyExtraClass(extraProps, blockType, attributes) {
     return extraProps;
   }
   let classes = [];
+  classes.push({
+    "aslink": attributes.showAsLink
+  });
+  classes.push({
+    "extendButton": attributes.extendButton
+  });
+  classes.push({
+    "catButton": attributes.catButton
+  });
+  if (attributes.iconName) {
+    classes.push(`ico-${iconName}`);
+  }
   let colorName = getColorName(attributes.buttonColor);
   if (colorName) {
     classes.push(`color-${colorName}`);
@@ -2161,7 +2238,7 @@ class ColumnOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE
       setAttributes
     } = this.props;
     const {
-      overFlowed
+      alignCenter
     } = attributes;
     let allow = false;
     const name = this.props.name;
@@ -2182,11 +2259,11 @@ class ColumnOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MODULE
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
       className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Imagen contenida"),
-      checked: overFlowed,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Alinear contenido al centro"),
+      checked: alignCenter,
       onChange: newValue => {
         setAttributes({
-          overFlowed: newValue
+          alignCenter: newValue
         });
       }
     }))));
@@ -2205,7 +2282,7 @@ function addAttributes(settings) {
           type: 'boolean',
           default: false
         },
-        overFlowed: {
+        alignCenter: {
           type: 'boolean',
           default: false
         }
@@ -3110,7 +3187,7 @@ class ContainerOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MOD
     const {
       cbgColor,
       cbgColorName,
-      paddingRightLeft
+      alignCenter
     } = attributes;
     let allow = false;
     const name = this.props.name;
@@ -3131,11 +3208,11 @@ class ContainerOptionsComponent extends _wordpress_element__WEBPACK_IMPORTED_MOD
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
       className: "art-mt-xs",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("espaciado a los lados"),
-      checked: paddingRightLeft,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("centrar contenido"),
+      checked: alignCenter,
       onChange: newValue => {
         setAttributes({
-          paddingRightLeft: newValue
+          alignCenter: newValue
         });
       }
     }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
@@ -3183,7 +3260,7 @@ function addAttributes(settings) {
           type: 'string',
           default: 'false'
         },
-        paddingRightLeft: {
+        alignCenter: {
           type: 'boolean',
           default: false
         }

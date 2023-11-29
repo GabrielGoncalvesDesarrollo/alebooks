@@ -66,6 +66,10 @@ if( array_key_exists('paddingRightLeft', $attributes ) && $attributes['paddingRi
 		$classes[] = 'padding-Right-Left';
 	}
 
+	if( array_key_exists('alignCenter', $attributes ) && $attributes['alignCenter'] != false ){
+		$classes[] = 'align-Center';
+	}
+
 $iframe_video = $attributes['iframeVideo'];
 
 if (array_key_exists('photoUrl', $attributes) && $attributes['photoUrl'] != '') {

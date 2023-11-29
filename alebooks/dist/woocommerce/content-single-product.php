@@ -84,9 +84,9 @@ if (post_password_required()) {
 
 	<div class="content product__related margin-top-2xl">
 		<div class="container">
-			<div class="grid offset-1@lg">
+			
 				<?php woocommerce_output_related_products() ?>
-			</div>
+			
 		</div>
 	</div>
 	<?php

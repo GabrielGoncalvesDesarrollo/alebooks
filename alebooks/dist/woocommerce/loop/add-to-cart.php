@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 
-echo '<a class="button button--red view-product" href="'. $product->get_permalink().'">'.__('Ver producto').'</a>';
+echo '<a class="button button--white view-product" href="'. $product->get_permalink().'">'.__('Ver más').'</a>';
 
 echo apply_filters(
 	'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.

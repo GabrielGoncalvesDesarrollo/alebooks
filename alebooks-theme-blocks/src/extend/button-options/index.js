@@ -18,6 +18,7 @@ const allowedBlocks = [
 ];
 
 const colors = [
+	{ name: 'transparent', color: 'transparent' },
 	{ name: 'white', color: '#FFFFFF' },
 	{ name: 'black', color: '#000000' },
 	{ name: "red", color: "#F0392D" },
@@ -25,6 +26,7 @@ const colors = [
 
 const iconlist = [
 	{ label: 'Flecha', value: 'arrow'},
+
 ];
 
 
@@ -49,7 +51,7 @@ class ButtonOptionsComponent extends Component {
 
 	render() {
 		const { attributes, setAttributes, classNames } = this.props;
-		const { buttonColor } = attributes;
+		const { iconName, buttonColor, showAsLink, extendButton, catButton } = attributes;
 
 		let allow = false;
 
@@ -77,7 +79,44 @@ class ButtonOptionsComponent extends Component {
 						initalOpenPanel = !initalOpenPanel;
 					}}
 				>
-				
+					<PanelRow className="art-mt-xs">
+					<BaseControl
+						label="Icono"
+						help="Seleccione el icono que se desa mostrar en el boton"
+						className='art-mt-xs'
+					>
+						<ButtonGroup>
+							<ul class="art-btn-group">
+								{iconlist.map((option) => {
+									return(
+										<li>
+											<Button
+												key={option.value}
+												variant={(option.value == iconName)? 'primary' : ''}
+												className={classnames({
+													'is-active': 'left' === option.value,
+												})}
+												onClick={() => setAttributes({iconName:option.value})}
+												icon={icons[option.value]}
+												label={option.label}
+											/>
+										</li>
+									)
+								})}
+							</ul>
+							
+						</ButtonGroup>
+
+						<Button
+							isDestructive
+							key="resetIcons"
+							onClick={() => setAttributes({ iconName: '' })}
+						>
+							Restaurar
+						</Button>
+					</BaseControl>
+					</PanelRow>
+
 					<PanelRow className='art-mt-xs'>
 						<BaseControl
 							label="Colores"
@@ -95,6 +134,22 @@ class ButtonOptionsComponent extends Component {
 						</BaseControl>		
 					</PanelRow>
 
+					{/* <PanelRow className='art-mb-xs'>
+						<BaseControl
+							label='Visualización'
+							help="aquí encontrarás varias pociones de visualización"
+						>
+							<ToggleControl
+								className="art-mt-xs"
+								label={__("¿Mostrar como un enlace")}
+								checked={showAsLink}
+								onChange={(newValue) => {
+									setAttributes({ showAsLink: newValue });
+								}}
+							/>
+						</BaseControl>
+					</PanelRow> */}
+
 				</PanelBody>
 			</InspectorControls>
 		)
@@ -108,9 +163,25 @@ function addAttributes(settings) {
 			...settings,
 			attributes: {
 				...attributes,
+				iconName: {
+					type: 'string',
+					default: ''
+				},
 				buttonColor: {
 					type: 'string',
 					default: ''
+				},
+				showAsLink: {
+					type: 'boolean',
+					default: false,
+				},
+				extendButton: {
+					type: 'boolean',
+					default: false,
+				},
+				catButton: {
+					type: 'boolean',
+					default: false,
 				},
 			}
 		}
@@ -137,14 +208,22 @@ const withButtonOptionsControl = createHigherOrderComponent(
 				true
 			);
 
-			if (attributes.className)
+			if (attributes.className) {
+				attributes.className = removeClasses(attributes.className, "ico-");
 				attributes.className = removeClasses(attributes.className, "color-");
-
+			}
 
 			let classes = [];
 
-			let colorName = getColorName(attributes.buttonColor);
+			classes.push({ "aslink": attributes.showAsLink });
+			classes.push({ "extendButton": attributes.extendButton });
+			classes.push({ "catButton": attributes.catButton });
 
+			if (attributes.iconName) {
+				classes.push(`ico-${attributes.iconName}`);
+			}
+
+			let colorName = getColorName(attributes.buttonColor);
 			if (colorName) {
 				classes.push(`color-${colorName}`);
 			}
@@ -172,7 +251,13 @@ function applyExtraClass(extraProps, blockType, attributes) {
 
 	let classes = [];
 
+	classes.push({ "aslink": attributes.showAsLink });
+	classes.push({ "extendButton": attributes.extendButton });
+	classes.push({ "catButton": attributes.catButton });
 
+	if(attributes.iconName){
+		classes.push(`ico-${iconName}`);
+	}
 
 	let colorName = getColorName(attributes.buttonColor);
 	if (colorName) {

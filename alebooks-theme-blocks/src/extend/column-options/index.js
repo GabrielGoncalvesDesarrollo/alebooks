@@ -26,7 +26,7 @@ class ColumnOptionsComponent extends Component {
 
 	render() {
 		const { attributes, setAttributes } = this.props;
-		const { overFlowed } = attributes;
+		const { alignCenter } = attributes;
 
 		let allow = false;
 
@@ -57,10 +57,10 @@ class ColumnOptionsComponent extends Component {
 					<PanelRow>
 					<ToggleControl
 						className="art-mt-xs"
-						label={__("Imagen contenida")}
-						checked={overFlowed}
+						label={__("Alinear contenido al centro")}
+						checked={alignCenter}
 						onChange={(newValue) => {
-						setAttributes({ overFlowed: newValue });
+						setAttributes({ alignCenter: newValue });
 						}}
 					/>
 					</PanelRow>
@@ -82,7 +82,7 @@ function addAttributes(settings) {
 					type: 'boolean',
 					default: false
 				},
-				overFlowed: {
+				alignCenter: {
 					type: 'boolean',
 					default: false
 				},

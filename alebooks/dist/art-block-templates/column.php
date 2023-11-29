@@ -50,6 +50,9 @@
 		$classes[] = 'bg-color-' . $attributes['cbgColorName'];
 	}
 
+	if( array_key_exists('alignCenter', $attributes ) && $attributes['alignCenter'] != false ){
+		$classes[] = 'align-Center';
+	}
 
 	$verticalAlignProperties = array(
 		array('property' => 'verticalTopXs', 'className' => 'justify-#@xs'),

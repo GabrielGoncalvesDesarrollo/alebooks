@@ -1,0 +1,48 @@
+@use 'config' as *;
+@use 'tools' as *;
+
+
+.ico {
+	display: inline-block;
+	margin-left: var(--space-xs);
+}
+
+.icon {
+	&-arrow {
+		width: rem(17);
+		height: rem(17);
+		background-color: var(--color-light-black);
+		background-image: url('../images/arrow-right.svg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		transition: ease-in-out all 0.3s;
+	}
+
+	&-arrowDown {
+		width: rem(17);
+		height: rem(17);
+		background-color: var(--color-light-black);
+		mask-image: url('../images/arrow-right.svg');
+		mask-size: cover;
+		mask-repeat: no-repeat;
+		transition: ease-in-out all 0.3s;
+	}
+
+	&-download {
+		width: rem(20);
+		height: rem(16);
+		background-color: var(--color-black);
+		mask-image: url('../images/arrow-right.svg');
+		mask-size: contain;
+		mask-repeat: no-repeat;
+	}
+
+	&-sobre {
+		width: rem(26);
+		height: rem(26);
+		background-color: var(--color-white);
+		mask-image: url('../images/arrow-right.svg');
+		mask-size: contain;
+		mask-repeat: no-repeat;
+	}
+}
