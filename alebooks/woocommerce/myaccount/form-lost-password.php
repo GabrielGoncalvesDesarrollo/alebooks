@@ -24,7 +24,7 @@ do_action('woocommerce_before_lost_password_form');
 <div class="grid gap-xl mt-md mb-md">
 	<div class="col-3@lg"></div>
 	<div class="col-6@lg">
-		<h1 class="has-size-t2"><?php echo __('Recupareción de contraseña', 'domi') ?></h1>
+		<h1 class="has-size-t2"><?php echo __('Recuperación de contraseña', 'domi') ?></h1>
 		<form method="post" class="woocommerce-ResetPassword lost_reset_password">
 	
 			<p><?php echo apply_filters('woocommerce_lost_password_message', esc_html__('Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce')); ?></p><?php // @codingStandardsIgnoreLine 

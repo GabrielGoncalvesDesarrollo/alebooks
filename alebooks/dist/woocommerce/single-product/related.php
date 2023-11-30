@@ -24,13 +24,13 @@ if ( $related_products ) : ?>
 	<section class="related products">
 
 		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Te pueden interesar', 'woocommerce' ) );
 
 		if ( $heading ) :
 			?>
 			<h2 class="has-size"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
-		
+		<hr class="separador">
 		<?php woocommerce_product_loop_start(); ?>
 
 			<?php foreach ( $related_products as $related_product ) : ?>

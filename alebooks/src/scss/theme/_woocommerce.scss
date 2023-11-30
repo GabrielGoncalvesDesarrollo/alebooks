@@ -673,9 +673,10 @@ button.wc-block-mini-cart__button {
 	div{
 		&.product {
 			.product_title {
-				@extend #{'.font-t3-dest'};
-				font-weight: 400;
+				@extend #{'.font-t3'};
+				font-weight: 300;
 				font-family: var(--font-secondary);
+				margin-bottom: var(--space-xs);
 			}
 
 			p {
@@ -698,13 +699,31 @@ button.wc-block-mini-cart__button {
 	}
 }
 
-
-
 .products {
 	.specific-product-wrapper{
-		padding: rem(80);
+		padding: rem(40) rem(80) rem(80) rem(80);
 		margin-bottom: rem(20);
 		background-color: #F4F4F4;
+		.heart{
+			display: flex;
+			justify-content: flex-end;
+			z-index: 9;
+			position: relative;
+			margin-bottom: rem(10);
+			margin-right: rem(-20);	
+			svg path {
+				transition: fill 0.3s ease;
+				stroke: #1C1B1B;
+				stroke-width: 2;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+				fill: transparent;
+				&:hover{
+					 fill: var(--color-red);
+					 stroke: var(--color-red);
+				}
+			}
+		}
 	}
 	.specific-product-wrapper-lowcost{
 		padding: rem(5);
@@ -712,6 +731,7 @@ button.wc-block-mini-cart__button {
 		color: var(--color-white);
 		@extend #{'.font-body'};
 		font-weight: 500;
+		margin-bottom: var(--space-xs);
 	}
 	.product {
 		
@@ -804,7 +824,35 @@ body {
 .single-product {
 	.product {
 		&__price {
-			padding-top: var(--space-md);
+			padding-top: var(--space-xs);
+		}
+		&__lowcost{
+			@extend #{'.font-body'};
+			color: var(--color-red);
+			margin-bottom: var(--space-md);
+			font-weight: 500;
+		}
+		&__sku{
+			@extend #{'.font-t5'};
+			color: var(--color-black);
+			margin-bottom: var(--space-md);
+			font-weight: 500;
+			font-family: var(--font-secondary);
+		}
+		&__lowcost-banner{
+			padding: rem(5);
+			background-color: var(--color-red);
+			color: var(--color-white);
+			@extend #{'.font-body'};
+			font-weight: 500;
+			display: inline-flex;
+			margin-bottom: var(--space-lg);
+		}
+		&__description{
+			@extend #{'.font-body'};
+			color: var(--color-black);
+			margin-bottom: var(--space-xs);
+			font-weight: 500;
 		}
 		
 		.posted_in {
@@ -889,8 +937,8 @@ body {
 
 						img {
 							margin: 0 auto;
-							width: auto;
-							max-height: rem(500);
+							width: 100%;
+							height: 100%;
 						} 
 
 						.wpgs-nav {
@@ -961,10 +1009,17 @@ body {
 .product__related{
 	h2 {
 		@extend #{'.font-t1'};
-		font-family: var(--font-primary);
-		font-weight: 500;
-		
+		font-family: var(--font-secondary);
+		font-weight: 300;
+		text-align: center;
 	}
+}
+
+.titulo-archivo{
+		@extend #{'.font-t1'};
+		font-family: var(--font-secondary);
+		font-weight: 300;
+		text-align: center;
 }
 
 

@@ -20,6 +20,14 @@
 			height: auto;
 			padding: 0;
 		}
+		&__single{
+			display: flex;
+			font-weight: 500;
+			@extend #{'.font-t3-dest'};
+			a{
+				text-decoration: none;
+			}
+		}
 	}
 	a {
 		text-decoration: none;
@@ -80,6 +88,7 @@
 						text-align: center;
 						margin-bottom: var(--space-xs);
 						font-weight: 400;
+						padding: rem(0) rem(20);
 					}
 				}
 			}

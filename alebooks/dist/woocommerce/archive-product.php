@@ -32,21 +32,18 @@ $banner = get_field('_cat_banner', $category);
 	</div>
 <?php endif; ?>
 
-<div class="content mt-xl mb-xl">
-	<div class="container">
-		<div class="grid offset-1 gap-md">			
+<div class="content mt-xl">
+	<div class="container width-100%@xs max-width-100%@xs width-100%@lg max-width-100%@lg">
+		<div class="grid offset-0 gap-md">			
 			<?php if (is_search()): ?>
-				<div class="col-12 col-12@lg offset-1@lg">
-					<h1><?php woocommerce_page_title(); ?></h1>
+				<div class="col-12 col-12@lg offset-0@lg">
+					<div class="titulo-archivo"><?php woocommerce_page_title(); ?></div>
 				</div>
 			<?php else: ?>
-				<div class="col-12 col-5@lg offset-1@lg">
-					<h1><?php woocommerce_page_title(); ?></h1>
+				<div class="col-12 col-12@lg offset-0@lg">
+					<div class="titulo-archivo"><?php woocommerce_page_title(); ?></div>
 				</div>
-
-				<div class="col-12 col-4@lg description">
-					<?php do_action( 'woocommerce_archive_description' ); ?>
-				</div>
+				<hr class="separador">
 			<?php endif; ?>
 
 		</div>
@@ -61,9 +58,9 @@ $banner = get_field('_cat_banner', $category);
 				<?php //do_action('woocommerce_before_shop_loop'); ?>
 			</div>
 
-			<div class="grid offset-1">
+			<div class="grid offset-0">
 				
-				<div class="col-11@lg">
+				<div class="col-12@lg">
 					<?php woocommerce_product_loop_start(); ?>
 				
 					<?php
