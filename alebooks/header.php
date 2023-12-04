@@ -23,11 +23,11 @@
 					$page_classes = get_body_class();
 					if (in_array('home', $page_classes)) {
 					?>
-						<div class="col-8 col-3@lg header__logo">
+						<div class="col-7 col-9@md col-3@lg header__logo">
 								<a href="<?php echo home_url('/') ?>"><img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header.svg" alt="Logo alebooks"></a>
 							</div>
 					<?php } else { ?>
-						<div class="col-8 col-3@lg header__logo">
+						<div class="col-7 col-9@md col-3@lg header__logo">
 							<a href="<?php echo home_url('/') ?>" class="logo-link">
 								<img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header.svg" alt="Logo alebooks" class="normal-logo">
 								<img src="<?php echo ART_THEME_CSS ?>/assets/images/logo-header.svg" alt="Logo alebooks" class="white-logo">
@@ -35,7 +35,7 @@
 						</div>
 					<?php } ?>
 
-					<div class="col-6 col-9@lg hide@xs flex@lg justify-end@lg">
+					<div class="col-6 col-8@lg hide@xs flex@lg justify-end@lg">
 						<?php
 						wp_nav_menu(
 							array(
@@ -51,7 +51,19 @@
 						);
 						?>
 					</div>
-					<div class="col-4 flex@xs hide@lg justify-end@xs padding-right-xs@xs">
+					<div class="col-3 col-2@md col-1@lg header__icons ">
+						<div class="menu__search flexv justify-xl-center align-xl-center justify-md-center align-md-center">
+							<a class="search__icon" href="#" data-module-search><img class="lupa" src="<?php echo ART_THEME_CSS ?>/assets/images/lupa.svg" alt="<?php echo __('Icono lupa', 'domi') ?>"></i></a>
+						</div>
+						<?php
+						$block_content_cart = '<!-- wp:woocommerce/mini-cart {"addToCartBehaviour":"open_drawer","hasHiddenPrice":true} /-->';
+						?>
+						<div class="art__cart">
+							<?php echo do_blocks($block_content_cart); ?>
+						</div>
+					</div>
+					
+					<div class="col-2 col-1@md flex@xs hide@lg justify-center@xs padding-right-xs@xs">
 						<button class="hamburger hamburger--spin js-hamburger" type="button" aria-label="Menu" aria-controls="navigation" data-module-menu>
 							<span class="hamburger-box">
 								<span class="hamburger-inner"></span>

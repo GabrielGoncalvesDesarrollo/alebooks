@@ -43,6 +43,9 @@
 			'light-grey':(
 				'base': '0, 0%, 98%',
 			),
+			'light-grey-cart':(
+				'base': '0, 0%, 60%',
+			),
 			'red':(
 				'base': '4, 87%, 56%',
 			),
@@ -111,6 +114,7 @@
 @use './theme/products';
 @use './theme/woocommerce';
 @use './theme/iconos';
+@use './theme/search';
 
 @use './theme/theme_posts';
 @use './theme/theme_404';

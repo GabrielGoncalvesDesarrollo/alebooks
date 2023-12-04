@@ -122,15 +122,69 @@ add_filter('style_loader_tag', '_art_change_defer_css', 10, 2);
 /* Funciones de bloques */
 
 
-//add_filter('render_block', 'art_blocks_modify', 10, 2); 
+add_filter('render_block', 'art_blocks_modify', 10, 2);
 function art_blocks_modify($block_content, $block)
 {
+
+	/* if($block['blockName']  === 'core/image'){
+		if($block['attrs']['isParallax'] === true){
+			$figure_pattern = '/<figure(.*?)>/s';
+			if (preg_match_all($figure_pattern, $block_content, $matches)) {
+				foreach ($matches[0] as $figure) {
+					$figure_with_data = str_replace('<figure', '<figure data-module-banner', $figure);
+					$block_content = str_replace($figure, $figure_with_data, $block_content);
+				}
+			}
+		}
+
+		if (isset($block['attrs']['negativeMargin']) && $block['attrs']['negativeMargin'] === true) {
+			$block_content = new WP_HTML_Tag_Processor( $block_content );
+      $block_content->next_tag('figure'); 
+      $block_content->add_class( 'negative-margin' );
+      $block_content->get_updated_html();
+		}
+	} */
+
+	/* if ($block['blockName'] == 'core/heading' && !is_admin()) {
+    $dom = new DOMDocument();
+    // Establecer la codificación adecuada al cargar el contenido HTML
+    $dom->loadHTML(mb_convert_encoding($block_content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+    $h1Element = $dom->getElementsByTagName('h1')->item(0);
+    $childNodes = $h1Element->childNodes;
+
+    $lineas = [];
+    foreach ($childNodes as $childNode) {
+        if ($childNode->nodeType === XML_TEXT_NODE) {
+            $lineas[] = $childNode->nodeValue;
+        }
+    }
+
+    if (count($lineas) > 1) {
+        $primeraParte = trim($lineas[0]);
+        $segundaParte = trim($lineas[1]);
+
+        $span = $dom->createElement('span', $primeraParte);
+        $span->setAttribute('class', 'first-part');
+
+        $h1Element->nodeValue = '';
+        $h1Element->appendChild($span);
+
+        $brElement = $dom->createElement('br');
+        $h1Element->appendChild($brElement);
+
+        $textNode = $dom->createTextNode($segundaParte);
+        $h1Element->appendChild($textNode);
+    }
+    // Obtener el contenido HTML con la codificación adecuada
+    $block_content = mb_convert_encoding($dom->saveHTML(), 'UTF-8', 'HTML-ENTITIES');
+	}  */
 
 	return $block_content;
 }
 
 function art_img_tag_image_sizes($filtered_image, $context, $attachment_id)
-{ 
+{
 	$dom = new DOMDocument();
 	$dom->loadHTML($filtered_image);
 
@@ -141,19 +195,6 @@ function art_img_tag_image_sizes($filtered_image, $context, $attachment_id)
 	if ($images->length > 0) {
 		foreach ($images as $image) {
 			// Obtener el ancho y alto actuales
-
-			$parent = $image->parentNode;
-			/* echo '<pre>';
-			var_dump($parent);
-			echo '</pre>'; */
-
-			// Verificar si el elemento padre es un 'figure' y contiene la clase 'full-size'
-			if ($parent->nodeName === 'figure' && strpos($parent->getAttribute('class'), 'full-size') !== false
-			) {
-				// Si el padre es un 'figure' con la clase 'full-size', omite esta imagen y continúa con la siguiente.
-				continue;
-			}
-
 			$width = $image->getAttribute('width');
 			$height = $image->getAttribute('height');
 
@@ -167,11 +208,11 @@ function art_img_tag_image_sizes($filtered_image, $context, $attachment_id)
 			$image->setAttribute('style', 'width: ' . $width_rem . '; height: auto;');
 		}
 	}
-	$filtered_image = $dom->saveHTML(); 
+	$filtered_image = $dom->saveHTML();
 
 	return $filtered_image;
 }
-/* add_filter('wp_content_img_tag', 'art_img_tag_image_sizes', 10, 3); */
+//add_filter('wp_content_img_tag', 'art_img_tag_image_sizes', 10, 3);
 
 
 function art_theme_align_str($className)
@@ -271,8 +312,117 @@ function truncateString($string, $length, $ellipsis = '...')
 	}
 }
 
+/* Woocommerce */
 
 
 
+if (!function_exists('art_is_woocommerce_activated')) {
+	/**
+	 * Query WooCommerce activation
+	 */
+	function art_is_woocommerce_activated()
+	{
+		return class_exists('WooCommerce') ? true : false;
+	}
+}
+
+if (!function_exists('art_header_cart')) {
+	/**
+	 * Display Header Cart
+	 *
+	 * @since  1.0.0
+	 * @uses  art_is_woocommerce_activated() check if WooCommerce is activated
+	 * @return void
+	 */
+	function art_header_cart()
+	{
+		if (art_is_woocommerce_activated()) {
+			if (is_cart()) {
+				$class = 'current-menu-item';
+			} else {
+				$class = '';
+			}
+?>
+			<ul id="site-header-cart" class="site-header-cart cart-menu">
+				<li class="<?php echo esc_attr($class); ?>">
+					<?php art_cart_link(); ?>
+				</li>
+				<li class="cart-widget">
+					<?php the_widget('WC_Widget_Cart', 'title='); ?>
+				</li>
+			</ul>
+	<?php
+		}
+	}
+}
+
+function art_cart_link()
+{
+	if (!art_woo_cart_available()) {
+		return;
+	}
+	?>
+	<a class="cart-contents" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php esc_attr_e('Ver tu carrito', 'editorial'); ?>">
+		<?php /* translators: %d: number of items in cart */ ?>
+		<?php echo wp_kses_post(WC()->cart->get_cart_subtotal()); ?> <span class="count"><?php echo wp_kses_data(WC()->cart->get_cart_contents_count()); ?></span>
+		<span class="cart-icon">
+			<svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M7.31025 17.7824C7.74588 17.7824 8.09902 17.4292 8.09902 16.9936C8.09902 16.558 7.74588 16.2048 7.31025 16.2048C6.87463 16.2048 6.52148 16.558 6.52148 16.9936C6.52148 17.4292 6.87463 17.7824 7.31025 17.7824Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M15.9865 17.7824C16.4221 17.7824 16.7753 17.4292 16.7753 16.9936C16.7753 16.558 16.4221 16.2048 15.9865 16.2048C15.5509 16.2048 15.1978 16.558 15.1978 16.9936C15.1978 17.4292 15.5509 17.7824 15.9865 17.7824Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M1 1.21802H4.15507L6.26896 11.7796C6.34109 12.1427 6.53865 12.469 6.82705 12.7011C7.11545 12.9333 7.47633 13.0566 7.8465 13.0495H15.5133C15.8835 13.0566 16.2444 12.9333 16.5328 12.7011C16.8212 12.469 17.0187 12.1427 17.0908 11.7796L18.3529 5.16185H4.94383" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			</svg>
+		</span>
+	</a>
+	<?php
+}
+
+if (!function_exists('art_woo_cart_available')) {
+	/**
+	 * Validates whether the Woo Cart instance is available in the request
+	 *
+	 * @since 2.6.0
+	 * @return bool
+	 */
+	function art_woo_cart_available()
+	{
+		$woo = WC();
+		return $woo instanceof \WooCommerce && $woo->cart instanceof \WC_Cart;
+	}
+}
 
 
+function art_header_cart_output()
+{
+	global $woocommerce;
+
+	ob_start();
+
+	if ($woocommerce) {
+	?>
+		<div class="cart-outer">
+			<div class="cart-menu-wrap">
+				<div class="cart-menu">
+					<a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>">
+						<div class="cart-icon-wrap">
+							<i class="icon-art-cart" aria-hidden="true"></i>
+							<div class="cart-wrap">
+								<span><?php echo esc_html($woocommerce->cart->cart_contents_count); ?> </span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+<?php
+	}
+
+	$captured_cart_content = ob_get_clean();
+	return $captured_cart_content;
+}
+
+
+function enqueue_wc_cart_fragments()
+{
+	wp_enqueue_script('wc-cart-fragments');
+}
+add_action('wp_enqueue_scripts', 'enqueue_wc_cart_fragments');
