@@ -474,6 +474,10 @@
 	border: solid 1px var(--color-black);
 }
 
+.wc-block-mini-cart__footer{
+	padding: rem(10) rem(0) !important;
+}
+
 .wc-block-components-product-name {
 	@extend #{'.font-t3', '.style_underline'};
 	text-decoration: none;
