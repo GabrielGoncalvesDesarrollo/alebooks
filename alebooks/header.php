@@ -53,7 +53,7 @@
 					</div>
 					<div class="col-3 col-2@md col-1@lg header__icons ">
 						<div class="menu__search flexv justify-xl-center align-xl-center justify-md-center align-md-center">
-							<a class="search__icon" href="#" data-module-search><img class="lupa" src="<?php echo ART_THEME_CSS ?>/assets/images/lupa.svg" alt="<?php echo __('Icono lupa', 'domi') ?>"></i></a>
+							<a class="search__icon" href="#" data-module-search><img class="lupa" src="<?php echo ART_THEME_CSS ?>/assets/images/lupa.svg" alt="<?php echo __('Icono lupa', 'domi') ?>"></a>
 						</div>
 						<?php
 						$block_content_cart = '<!-- wp:woocommerce/mini-cart {"addToCartBehaviour":"open_drawer","hasHiddenPrice":true} /-->';

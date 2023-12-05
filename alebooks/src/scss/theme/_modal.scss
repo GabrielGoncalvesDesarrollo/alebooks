@@ -10,11 +10,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-azul-100);
+  background-color: var(--color-white);
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .modal {
@@ -31,26 +33,28 @@
 
 .close-btn {
   position: absolute;
-  top: 100px;
-  right: 40px;
+  top: rem(200);
+  right: rem(60);
   font-size: rem(40);
   cursor: pointer;
   background: transparent;
   border: none;
-  color: var(--color-blanco-100);
+  color: var(--color-black);
 }
 
 .modal-content {
   text-align: center;
-  width: 70%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
   input{
 	background-color: transparent;
     border: none;
-    border-bottom: 4px solid white;
+    border-bottom: 1.5px solid #E3DBD9;
     width: 70%;
-	color: var(--color-blanco-100);
+	color: var(--color-black);
 	padding: rem(20) rem(0);
-
+    @extend #{'.font-t5'};
     background-image: url('../images/lupa.svg');
     background-position: left center;
     background-repeat: no-repeat;
