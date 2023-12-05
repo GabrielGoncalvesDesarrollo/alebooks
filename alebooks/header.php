@@ -97,4 +97,13 @@
 			</div>
 		</nav>
 
+		<div class="modal-overlay" id="modalOverlay">
+			<div class="modal">
+				<button class="close-btn" id="closeModal">&times;</button>
+				<div class="modal-content">
+					<?php get_search_form(); ?>
+				</div>
+			</div>
+		</div>
+
 		<main id="main-content">
