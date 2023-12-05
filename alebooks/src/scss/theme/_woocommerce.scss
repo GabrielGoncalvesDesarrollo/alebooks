@@ -452,6 +452,7 @@
 	border-radius: rem(30);
 	text-decoration: none;
 	transition: all 300ms ease;
+	cursor: pointer;
 
 	&.outlined {
 		background: var(--color-black) !important;
@@ -582,6 +583,7 @@ transition: all 300ms ease;
 			padding: rem(16);
 			color: var(--color-white);
 			transition: all 300ms ease;
+			cursor: pointer;
 
 			&:hover {
 				background: var(--color-white);
