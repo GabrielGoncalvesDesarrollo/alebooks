@@ -15,6 +15,7 @@
 		justify-content: center;
 		font-weight: 500;
 		@extend #{'.font-body'};
+		text-transform: uppercase;
 
 		.woocommerce-LoopProduct-link{
 			height: auto;
