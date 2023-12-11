@@ -223,3 +223,101 @@
 .logo-link.white-logo .white-logo {
     display: block; 
 }
+
+/* Estilo para el submenú */
+.am-submenu-list ,.submenu-list {
+    display: none;
+    position: absolute;
+    background-color: var(--color-light-grey);
+    z-index: 0;
+	top: rem(80);
+	li.no-js.am-list-item.menu-item.menu-item-type-taxonomy.menu-item-object-product_cat:not(:last-child){
+		border-bottom: 1px solid #E3DBD9;
+		
+	}
+	@include max-width(md){
+		position: relative;
+		top: rem(0);
+	}
+}
+ul.submenu-list{
+	list-style-type: none;
+	margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+	padding: rem(3) rem(10);
+	li {
+		a {
+			@extend #{'.font-banner'};
+			font-weight: 300;
+			font-family: var(--font-primary);
+		}
+	}
+	@include max-width(md){
+		margin: rem(10) rem(0);
+	}
+}
+
+/* Mostrar el submenú cuando tiene la clase 'submenu-show' */
+.submenu-show {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+	gap: rem(5);
+	padding: rem(3) rem(10);
+}
+
+button.am-submenu-toggle.am-submenu-button {
+    display: flex;
+    flex-direction: row;
+	cursor: pointer;
+	align-items: center;
+	transition: all 300ms ease;
+	gap: rem(10);
+	&:hover {
+		color: var(--color-red);
+		span.am-submenu-icon {
+            &:before {
+                filter: invert(53%) sepia(97%) saturate(7399%) hue-rotate(349deg) brightness(92%) contrast(97%);
+            }
+        }
+		}
+	@include max-width(md){
+		font-size: rem(32);
+		color: var(--color-black);
+		font-weight: 500;
+		text-decoration: none;
+		position: relative;
+		transition: all 300ms ease;
+			&:hover {
+				color: var(--color-red);
+			}
+	}
+	&.active{
+		color: var(--color-red);
+	}
+}
+
+span.am-submenu-icon {
+    width: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+	&:before{
+		content: '';
+		width: rem(15);
+		height: rem(10);
+		display: flex;
+		background-image: url('../images/Vector.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+	&.alt-image{
+		&:before{
+			background-image: url('../images/Vector-red.svg');
+		}
+	}
+}
