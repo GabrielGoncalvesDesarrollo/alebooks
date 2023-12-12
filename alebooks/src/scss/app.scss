@@ -130,21 +130,27 @@ $hamburger-layer-color         : #000 !default;
 
 @import './hamburgers/hamburgers';
 
+$min_width: 20rem;
+$max_width: 256rem;
+$min_font: 1rem;
+$max_font: 1.75rem;
+
 html {
 	position: relative;
 	scroll-behavior: smooth;
 	scroll-behavior: smooth;
 	overflow-y: initial;
 	height: 100%;
-	font-size: get-vw(16px);
+	@include fluid-type($min_width, $max_width, $min_font, $max_font);
+	/*font-size: get-vw(16px);
 	
 	@include max-width(xl) {
 		font-size: rem(16);
 	} 
 
 	@media (min-width: 166.25rem) {
-		font-size: rem(23);
-	}
+		font-size: rem(20);
+	}*/
 
 }
 
