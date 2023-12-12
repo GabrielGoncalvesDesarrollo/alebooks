@@ -4,6 +4,10 @@
 @use 'fonts' as *;
 @use 'theme_forms' as *;
 
+.wc-block-components-checkout-step--with-step-number .wc-block-components-checkout-step__title:before{
+	left: rem(-25) !important;
+}
+
 #search-form-1 {
 	padding-left: rem(50);
 }
@@ -1129,3 +1133,4 @@ span.wc-block-mini-cart__button {
 .woocommerce-customer-details {
 	margin-bottom: var(--space-2xl);
 }
+
