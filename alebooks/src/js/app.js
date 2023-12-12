@@ -102,34 +102,11 @@ function setupForm(){
 
 }
 
-function setupBackTop(){
-  const backToTopBtn = document.getElementById("backToTopBtn");
-
-  // Agrega un evento de clic al botón
-  backToTopBtn.addEventListener("click", function () {
-    // Desplázate suavemente hacia la parte superior de la página
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth" // Animación de desplazamiento suave
-    });
-  });
-
-  // Muestra u oculta el botón según la posición del usuario en la página
-  window.addEventListener("scroll", function () {
-    if (document.documentElement.scrollTop > 300) {
-      backToTopBtn.classList.add('show') // Mostrar el botón
-    } else {
-      backToTopBtn.classList.remove('show'); // Ocultar el botón
-    }
-  });
-}
-
 function init(){
 	app.init(app);
 
 	setupForm();
 	setupMenu();
-  setupBackTop();
 
 	html.classList.add('is-loaded');
 	html.classList.add('is-ready');

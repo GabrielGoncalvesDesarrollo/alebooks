@@ -15,6 +15,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<button class="btn-top" data-module-btntop>boton</button>
 	<div class="wrapper">
 		<header class="header" data-module-header>
 			<div class="container max-width-xl">

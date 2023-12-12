@@ -45,7 +45,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('container pb-xl width-100%@xs max-width-100%@xs width-100%@lg max-width-100%@lg', $product); ?>>
 	<div class="container margin-top-xl@xs margin-top-xl@lg margin-bottom-md@lg width-95%@xs max-width-95%@xs width-100%@lg max-width-100%@lg">
 		<div class="grid offset-1@lg">
-			<div class="grid gap-x-md gap-y-xl@xs gap-y-md@lg">
+			<div class="grid gap-x-md gap-y-md@xs gap-y-md@lg">
 				<div class="col-12 col-4@lg">
 						<?php do_action('woocommerce_before_single_product_summary'); ?>
 				</div>
@@ -85,11 +85,9 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 					<div class="product__description">
 						<?php the_content(); ?>
 					</div>
-					<?php if ( $is_low_cost ) : ?>
-						<div class="product__lowcost">
-							Por la compra de dos libros lowcost, el tercero gratis.
-						</div>
-					<?php endif; ?>
+					<div class="product__lowcost">
+						La imagen del libro puede no corresponder con el estado del producto.
+					</div>
 					<?php
 					$product = wc_get_product(get_the_ID());
 
