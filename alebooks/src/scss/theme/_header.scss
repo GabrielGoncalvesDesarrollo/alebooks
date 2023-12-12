@@ -276,6 +276,7 @@ button.am-submenu-toggle.am-submenu-button {
 	align-items: center;
 	transition: all 300ms ease;
 	gap: rem(10);
+	font-weight: 500;
 	&:hover {
 		color: var(--color-red);
 		span.am-submenu-icon {
