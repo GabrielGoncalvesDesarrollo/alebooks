@@ -11,4 +11,5 @@ include ART_THEME_PATH . '/inc/tools/a11y-walker-nav-menu.php';
 include ART_THEME_PATH . '/inc/art-theme-functions.php';
 include ART_THEME_PATH . '/inc/art-theme-gutenberg.php';
 include ART_THEME_PATH . '/inc/art-theme-blocks.php';
+include ART_THEME_PATH . '/inc/art-theme-woocommerce.php';
 
