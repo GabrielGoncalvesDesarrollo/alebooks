@@ -2,10 +2,6 @@
 namespace WP_Artsolut_Theme_Blocks;
 
 /* use WP_Artsolut_Theme_Blocks\Home_Animation\Artsolut_Home_Animation_Block_Type; */
-use WP_Artsolut_Theme_Blocks\Product_Card\Artsolut_Product_Card_Block_Type;
-use WP_Artsolut_Theme_Blocks\Product_Slider\Artsolut_Product_Slider_Block_Type;
-use WP_Artsolut_Theme_Blocks\Panaderia\Artsolut_Panaderia_Block_Type;
-use WP_Artsolut_Theme_Blocks\Timeline\Artsolut_Timeline_Block_Type;
 use WP_Artsolut_Theme_Blocks\Bannr\Artsolut_Bannr_Block_Type;
 use WP_Artsolut_Theme_Blocks\FAQ\Artsolut_FAQ_Block_Type;
 
@@ -51,10 +47,6 @@ class WP_Artsolut_Theme_Blocks {
 		/* Clases goes here */
 
 		/* require_once WP_ARTSOLUT_THEME_BLOCKS_ABSPATH . 'src/blocks/home-animation/class-homeanimation-block-type.php'; */
-		require_once WP_ARTSOLUT_THEME_BLOCKS_ABSPATH . 'src/blocks/product-card/class-product-card-block-type.php';
-		require_once WP_ARTSOLUT_THEME_BLOCKS_ABSPATH . 'src/blocks/product-slider/class-product-slider-block-type.php';
-		require_once WP_ARTSOLUT_THEME_BLOCKS_ABSPATH . 'src/blocks/panaderia/class-panaderia-block-type.php';
-		require_once WP_ARTSOLUT_THEME_BLOCKS_ABSPATH . 'src/blocks/timeline/class-timeline-block-type.php';
 		require_once WP_ARTSOLUT_THEME_BLOCKS_ABSPATH . 'src/blocks/banner/class-banner-block-type.php';
 		require_once WP_ARTSOLUT_THEME_BLOCKS_ABSPATH . 'src/blocks/faq/class-faq-block-type.php';
 	}
@@ -148,22 +140,8 @@ class WP_Artsolut_Theme_Blocks {
 	public function register_block_types(){
 		/* Inicialización de clases */
 
-		/* new Artsolut_Home_Animation_Block_Type(); */
-
-		new Artsolut_Product_Card_Block_Type();
-		new Artsolut_Product_Slider_Block_Type();
-		new Artsolut_Panaderia_Block_Type();
-		new Artsolut_Timeline_Block_Type();
 		new Artsolut_Bannr_Block_Type();
 		new Artsolut_FAQ_Block_Type();
-	/* 	new Artsolut_Split_Heading_Block_Type(); */
-		/* 
-	
-		new Artsolut_Tabla_Precios_Block_Type();
-		new Artsolut_Bannr_Block_Type();
-		new Artsolut_Timeline_Block_Type();
-		new Artsolut_Ponentes_Block_Type();
-		new Artsolut_Programa_Block_Type(); */
 	}
 
 	public function register_custom_block_category( $block_categories, $block_editor_context ) {
