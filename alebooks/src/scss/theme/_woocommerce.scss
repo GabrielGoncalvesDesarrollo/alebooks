@@ -869,6 +869,9 @@ body {
 			margin-bottom: var(--space-xs);
 			font-weight: 500;
 		}
+		&__general{
+			margin: rem(10) rem(0);
+		}
 		
 		.posted_in {
 			a {

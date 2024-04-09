@@ -71,9 +71,9 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 					<div class="product__title">
 						<?php woocommerce_template_single_title(); ?>
 					</div>
-					<?php
-						echo wc_get_product_tag_list( $product->get_id(), ', ', '<div class="products__tags__single">', '</div>' );
-					?>
+					<div class="products__tags__single">
+						<?php echo get_post_meta( get_the_ID(), '_author_person', true ); ?>
+					</div>
 					<div class="product__price">
 						<?php woocommerce_template_single_price(); ?>
 					</div>
@@ -99,6 +99,12 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						<?php
 					}
 					?>
+					<div class="product__general">
+						<?php echo get_post_meta( get_the_ID(), '_author_bio', true ); ?>
+					</div>
+					<div class="product__general">
+						<?php echo get_post_meta( get_the_ID(), '_author_ibic', true ); ?>
+					</div>
 					<div class="product__actions">
 						<?php 
 							woocommerce_template_single_add_to_cart()
