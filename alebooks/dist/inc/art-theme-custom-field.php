@@ -30,25 +30,7 @@ function woocommerce_product_author_bio() {
     
     echo '</p>'; // Cierre del div para el campo
 
-    // Campo para otro dato personalizado
-    echo '<p class="form-field _author_editoral_field"><label for="_author_editoral">Editorial:</label>';
     
-    // Campo de texto enriquecido (con editor)
-    echo '<div class="general-editor">';
-    wp_editor( 
-        get_post_meta( $post->ID, '_author_editoral', true ), 
-        '_author_editoral', 
-        array(
-            'textarea_name' => '_author_editoral',
-            'textarea_rows' => 5,
-            'wpautop'       => true
-        )
-    );
-    echo '</div>'; // Cierre del div para el editor
-    
-    echo '</p>'; // Cierre del div para el campo
-    
-
     // Campo para otro dato personalizado
     echo '<p class="form-field _author_subtitle_field"><label for="_author_subtitle">Subtitulo:</label>';
     
@@ -68,43 +50,7 @@ function woocommerce_product_author_bio() {
     echo '</p>'; // Cierre del div para el campo
     
 
-    // Campo para otro dato personalizado
-    echo '<p class="form-field _author_person_field"><label for="_author_person">Autor:</label>';
-    
-    // Campo de texto enriquecido (con editor)
-    echo '<div class="general-editor">';
-    wp_editor( 
-        get_post_meta( $post->ID, '_author_person', true ), 
-        '_author_person', 
-        array(
-            'textarea_name' => '_author_person',
-            'textarea_rows' => 5,
-            'wpautop'       => true
-        )
-    );
-    echo '</div>'; // Cierre del div para el editor
-    
-    echo '</p>'; // Cierre del div para el campo
-    
-    // Campo para otro dato personalizado
-    echo '<p class="form-field _author_format_field"><label for="_author_format">Formato del producto:</label>';
-    
-    // Campo de texto enriquecido (con editor)
-    echo '<div class="general-editor">';
-    wp_editor( 
-        get_post_meta( $post->ID, '_author_format', true ), 
-        '_author_format', 
-        array(
-            'textarea_name' => '_author_format',
-            'textarea_rows' => 5,
-            'wpautop'       => true
-        )
-    );
-    echo '</div>'; // Cierre del div para el editor
-    
-    echo '</p>'; // Cierre del div para el campo
-
-    // Campo para otro dato personalizado
+        // Campo para otro dato personalizado
     echo '<p class="form-field _author_chars_field"><label for="_author_chars">Características:</label>';
     
     // Campo de texto enriquecido (con editor)
@@ -122,59 +68,6 @@ function woocommerce_product_author_bio() {
     
     echo '</p>'; // Cierre del div para el campo
 
-    // Campo para otro dato personalizado
-    echo '<p class="form-field _author_collection_field"><label for="_author_collection">Colección:</label>';
-    
-    // Campo de texto enriquecido (con editor)
-    echo '<div class="general-editor">';
-    wp_editor( 
-        get_post_meta( $post->ID, '_author_collection', true ), 
-        '_author_collection', 
-        array(
-            'textarea_name' => '_author_collection',
-            'textarea_rows' => 5,
-            'wpautop'       => true
-        )
-    );
-    echo '</div>'; // Cierre del div para el editor
-    
-    echo '</p>'; // Cierre del div para el campo
-
-    // Campo para otro dato personalizado
-    echo '<p class="form-field _author_language_field"><label for="_author_language">Idioma de publicación:</label>';
-    
-    // Campo de texto enriquecido (con editor)
-    echo '<div class="general-editor">';
-    wp_editor( 
-        get_post_meta( $post->ID, '_author_language', true ), 
-        '_author_language', 
-        array(
-            'textarea_name' => '_author_language',
-            'textarea_rows' => 5,
-            'wpautop'       => true
-        )
-    );
-    echo '</div>'; // Cierre del div para el editor
-    
-    echo '</p>'; // Cierre del div para el campo
-
-    // Campo para otro dato personalizado
-    echo '<p class="form-field _author_date_field"><label for="_author_date">Fecha de edición:</label>';
-    
-    // Campo de texto enriquecido (con editor)
-    echo '<div class="general-editor">';
-    wp_editor( 
-        get_post_meta( $post->ID, '_author_date', true ), 
-        '_author_date', 
-        array(
-            'textarea_name' => '_author_date',
-            'textarea_rows' => 5,
-            'wpautop'       => true
-        )
-    );
-    echo '</div>'; // Cierre del div para el editor
-    
-    echo '</p>'; // Cierre del div para el campo
 
     // Campo para otro dato personalizado
     echo '<p class="form-field _author_ibic_field"><label for="_author_ibic">Materia destacada IBIC:</label>';
@@ -193,6 +86,100 @@ function woocommerce_product_author_bio() {
     echo '</div>'; // Cierre del div para el editor
     
     echo '</p>'; // Cierre del div para el campo
+
+    // Campo para otro dato personalizado
+    // Campo de texto enriquecido (con editor)
+    echo '<div class="general-editor">';
+    woocommerce_wp_textarea_input( 
+        array( 
+            'id'          => '_author_person', 
+            'label'       => 'Autor', 
+            'placeholder' => 'Ingresa aquí el Autor.', 
+            'description' => 'Puedes usar HTML en este campo.', 
+            'desc_tip'    => true,
+            'value'       => get_post_meta( $post->ID, '_author_person', true )
+        )
+    );
+    echo '</div>'; // Cierre del div para el editor
+    
+    // Campo para otro dato personalizado
+    // Campo de texto enriquecido (con editor)
+    echo '<div class="general-editor">';
+    woocommerce_wp_textarea_input( 
+        array( 
+            'id'          => '_author_format', 
+            'label'       => 'Formato del producto', 
+            'placeholder' => 'Ingresa aquí el Formato del producto.', 
+            'description' => 'Puedes usar HTML en este campo.', 
+            'desc_tip'    => true,
+            'value'       => get_post_meta( $post->ID, '_author_format', true )
+        )
+    );
+    echo '</div>'; // Cierre del div para el editor
+
+
+    // Campo para otro dato personalizado
+    // Campo de texto enriquecido (con editor)
+    echo '<div class="general-editor">';
+    woocommerce_wp_textarea_input( 
+        array( 
+            'id'          => '_author_editoral', 
+            'label'       => 'Editorial', 
+            'placeholder' => 'Ingresa aquí la Editorial.', 
+            'description' => 'Puedes usar HTML en este campo.', 
+            'desc_tip'    => true,
+            'value'       => get_post_meta( $post->ID, '_author_editoral', true )
+        )
+    );
+    echo '</div>'; // Cierre del div para el editor
+
+
+    // Campo para otro dato personalizado
+    // Campo de texto enriquecido (con editor)
+    echo '<div class="general-editor">';
+    woocommerce_wp_textarea_input( 
+        array( 
+            'id'          => '_author_collection', 
+            'label'       => 'Colección', 
+            'placeholder' => 'Ingresa aquí la Colección.', 
+            'description' => 'Puedes usar HTML en este campo.', 
+            'desc_tip'    => true,
+            'value'       => get_post_meta( $post->ID, '_author_collection', true )
+        )
+    );
+    echo '</div>'; // Cierre del div para el editor
+    
+
+    // Campo para otro dato personalizado
+    // Campo de texto enriquecido (con editor)
+    echo '<div class="general-editor">';
+    woocommerce_wp_textarea_input( 
+        array( 
+            'id'          => '_author_language', 
+            'label'       => 'Idioma de publicación', 
+            'placeholder' => 'Ingresa aquí el Idioma de publicación.', 
+            'description' => 'Puedes usar HTML en este campo.', 
+            'desc_tip'    => true,
+            'value'       => get_post_meta( $post->ID, '_author_language', true )
+        )
+    );
+    echo '</div>'; // Cierre del div para el editor
+
+    // Campo para otro dato personalizado
+    // Campo de texto enriquecido (con editor)
+    echo '<div class="general-editor">';
+    woocommerce_wp_textarea_input( 
+        array( 
+            'id'          => '_author_date', 
+            'label'       => 'Fecha de edición', 
+            'placeholder' => 'Ingresa aquí la Fecha de edición.', 
+            'description' => 'Puedes usar HTML en este campo.', 
+            'desc_tip'    => true,
+            'value'       => get_post_meta( $post->ID, '_author_date', true )
+        )
+    );
+
+    echo '</div>'; // Cierre del div para el editor
 
     echo '</div>';
     
