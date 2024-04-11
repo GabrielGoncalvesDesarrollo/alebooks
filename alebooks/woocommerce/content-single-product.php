@@ -40,7 +40,6 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
     $is_low_cost = false;
 }
 
-
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('container pb-xl width-100%@xs max-width-100%@xs width-100%@lg max-width-100%@lg', $product); ?>>
 	<div class="container margin-top-xl@xs margin-top-xl@lg margin-bottom-md@lg width-95%@xs max-width-95%@xs width-100%@lg max-width-100%@lg">
@@ -99,16 +98,91 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						<?php
 					}
 					?>
-					<div class="product__general">
-						<?php echo get_post_meta( get_the_ID(), '_author_bio', true ); ?>
-					</div>
-					<div class="product__general">
-						<?php echo get_post_meta( get_the_ID(), '_author_ibic', true ); ?>
-					</div>
+					<?php
+						$author_bio = get_post_meta( get_the_ID(), '_author_bio', true );
+						if ( ! empty( $author_bio ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_bio', true ); ?>
+						</div>
+					<?php endif; ?>
+					
+					<?php
+						$author_ibic = get_post_meta( get_the_ID(), '_author_ibic', true );
+						if ( ! empty( $author_ibic ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_ibic', true ); ?>
+						</div>
+					<?php endif; ?>
+
+					<?php
+						$author_subtitle = get_post_meta( get_the_ID(), '_author_subtitle', true );
+						if ( ! empty( $author_subtitle ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_subtitle', true ); ?>
+						</div>
+					<?php endif; ?>
+					
+					<?php
+						$author_chars = get_post_meta( get_the_ID(), '_author_chars', true );
+						if ( ! empty( $author_chars ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_chars', true ); ?>
+						</div>
+					<?php endif; ?>
+
+					<?php
+						$author_format = get_post_meta( get_the_ID(), '_author_format', true );
+						if ( ! empty( $author_format ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_format', true ); ?>
+						</div>
+					<?php endif; ?>
+					
+					<?php
+						$author_editoral = get_post_meta( get_the_ID(), '_author_editoral', true );
+						if ( ! empty( $author_editoral ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_editoral', true ); ?>
+						</div>
+					<?php endif; ?>
+					
+					<?php
+						$author_collection = get_post_meta( get_the_ID(), '_author_collection', true );
+						if ( ! empty( $author_collection ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_collection', true ); ?>
+						</div>
+					<?php endif; ?>
+					
+					<?php
+						$author_language = get_post_meta( get_the_ID(), '_author_language', true );
+						if ( ! empty( $author_language ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_language', true ); ?>
+						</div>
+					<?php endif; ?>
+					
+					<?php
+						$author_date = get_post_meta( get_the_ID(), '_author_date', true );
+						if ( ! empty( $author_date ) ) :
+						?>
+						<div class="product__general">
+							<?php echo get_post_meta( get_the_ID(), '_author_date', true ); ?>
+						</div>
+					<?php endif; ?>
+
 					<div class="product__actions">
 						<?php 
 							woocommerce_template_single_add_to_cart()
-						 ?>
+						?>
 					</div>
 				</div>
 			</div>
