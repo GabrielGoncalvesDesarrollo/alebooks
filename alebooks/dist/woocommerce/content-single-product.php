@@ -99,6 +99,47 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						<?php
 					}
 					?>
+
+					<?php
+						$author_editoral = get_post_meta( get_the_ID(), '_author_editoral', true );
+						if ( ! empty( $author_editoral ) ) :
+						?>
+						<div class="product__general">
+							<p class="title">Editorial</p>
+							<?php echo get_post_meta( get_the_ID(), '_author_editoral', true ); ?>
+						</div>
+					<?php endif; ?>
+
+					<?php
+						$author_subtitle = get_post_meta( get_the_ID(), '_author_subtitle', true );
+						if ( ! empty( $author_subtitle ) ) :
+						?>
+						<div class="product__general">
+							<p class="title">Subtítulo</p>
+							<?php echo get_post_meta( get_the_ID(), '_author_subtitle', true ); ?>
+						</div>
+					<?php endif; ?>
+
+					<?php
+						$author_language = get_post_meta( get_the_ID(), '_author_language', true );
+						if ( ! empty( $author_language ) ) :
+						?>
+						<div class="product__general">
+							<p class="title">Idioma</p>
+							<?php echo get_post_meta( get_the_ID(), '_author_language', true ); ?>
+						</div>
+					<?php endif; ?>
+
+					<?php
+						$author_format = get_post_meta( get_the_ID(), '_author_format', true );
+						if ( ! empty( $author_format ) ) :
+						?>
+						<div class="product__general">
+							<p class="title">Formato del producto</p>
+							<?php echo get_post_meta( get_the_ID(), '_author_format', true ); ?>
+						</div>
+					<?php endif; ?>
+
 					<?php
 						$author_bio = get_post_meta( get_the_ID(), '_author_bio', true );
 						if ( ! empty( $author_bio ) ) :
@@ -118,16 +159,6 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 							<?php echo get_post_meta( get_the_ID(), '_author_ibic', true ); ?>
 						</div>
 					<?php endif; ?>
-
-					<?php
-						$author_subtitle = get_post_meta( get_the_ID(), '_author_subtitle', true );
-						if ( ! empty( $author_subtitle ) ) :
-						?>
-						<div class="product__general">
-							<p class="title">Subtítulo</p>
-							<?php echo get_post_meta( get_the_ID(), '_author_subtitle', true ); ?>
-						</div>
-					<?php endif; ?>
 					
 					<?php
 						$author_chars = get_post_meta( get_the_ID(), '_author_chars', true );
@@ -140,42 +171,12 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 					<?php endif; ?>
 
 					<?php
-						$author_format = get_post_meta( get_the_ID(), '_author_format', true );
-						if ( ! empty( $author_format ) ) :
-						?>
-						<div class="product__general">
-							<p class="title">Formato del producto</p>
-							<?php echo get_post_meta( get_the_ID(), '_author_format', true ); ?>
-						</div>
-					<?php endif; ?>
-					
-					<?php
-						$author_editoral = get_post_meta( get_the_ID(), '_author_editoral', true );
-						if ( ! empty( $author_editoral ) ) :
-						?>
-						<div class="product__general">
-							<p class="title">Editorial</p>
-							<?php echo get_post_meta( get_the_ID(), '_author_editoral', true ); ?>
-						</div>
-					<?php endif; ?>
-					
-					<?php
 						$author_collection = get_post_meta( get_the_ID(), '_author_collection', true );
 						if ( ! empty( $author_collection ) ) :
 						?>
 						<div class="product__general">
 							<p class="title">Colección</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_collection', true ); ?>
-						</div>
-					<?php endif; ?>
-					
-					<?php
-						$author_language = get_post_meta( get_the_ID(), '_author_language', true );
-						if ( ! empty( $author_language ) ) :
-						?>
-						<div class="product__general">
-							<p class="title">Idioma</p>
-							<?php echo get_post_meta( get_the_ID(), '_author_language', true ); ?>
 						</div>
 					<?php endif; ?>
 					
