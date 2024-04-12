@@ -1,15 +1,16 @@
-<?php 
-if (!defined('ABSPATH')) {
+<?php
+
+if(!defined('ABSPATH')){
     die('Direct access not permitted.');
 }
 
 /** Custom Field Producto **/
 
-add_action( 'woocommerce_product_options_general_product_data', 'woocommerce_product_author_bio' );
+add_action('woocommerce_product_options_general_product_data', 'woocommerce_product_author_bio');
 
-function woocommerce_product_author_bio() {
+function woocommerce_product_author_bio(){
     global $woocommerce, $post;
-    
+
     echo '<div class="options_group">';
     
     // Campo para la biografía del autor
@@ -181,42 +182,63 @@ function woocommerce_product_author_bio() {
 
     echo '</div>'; // Cierre del div para el editor
 
+    echo showInputAtributo($post, '_author_pages', 'Páginas');
+    echo showInputAtributo($post, '_author_weight', 'Peso (gr)');
+    echo showInputAtributo($post, '_author_length', 'Largo (cm)');
+    echo showInputAtributo($post, '_author_width', 'Ancho (cm)');
+    echo showInputAtributo($post, '_author_height', 'Alto (cm)');
     echo '</div>';
-    
 }
 
-add_action( 'woocommerce_process_product_meta', 'woocommerce_product_author_bio_save' );
+function showInputAtributo(WP_Post $post, string $id, string $label):string{
+    $value = get_post_meta($post->ID, $id, true);
 
-function woocommerce_product_author_bio_save( $post_id ){
-    if( isset( $_POST['_author_bio'] ) ) {
-        update_post_meta( $post_id, '_author_bio', $_POST['_author_bio'] );
+    return "<p class='form-field {$id}_field'>
+    <label for='$id'>$label:</label>
+    <input name='$id' value='$value'>
+    </p>";
+}
+
+
+add_action('woocommerce_process_product_meta', 'woocommerce_product_author_bio_save');
+
+function woocommerce_product_author_bio_save($post_id){
+    if(isset($_POST['_author_bio'])){
+        update_post_meta($post_id, '_author_bio', $_POST['_author_bio']);
     }
-    if( isset( $_POST['_author_editoral'] ) ) {
-        update_post_meta( $post_id, '_author_editoral', $_POST['_author_editoral'] );
+    if(isset($_POST['_author_editoral'])){
+        update_post_meta($post_id, '_author_editoral', $_POST['_author_editoral']);
     }
-    if( isset( $_POST['_author_subtitle'] ) ) {
-        update_post_meta( $post_id, '_author_subtitle', $_POST['_author_subtitle'] );
+    if(isset($_POST['_author_subtitle'])){
+        update_post_meta($post_id, '_author_subtitle', $_POST['_author_subtitle']);
     }
-    if( isset( $_POST['_author_person'] ) ) {
-        update_post_meta( $post_id, '_author_person', $_POST['_author_person'] ); 
+    if(isset($_POST['_author_person'])){
+        update_post_meta($post_id, '_author_person', $_POST['_author_person']);
     }
-    if( isset( $_POST['_author_format'] ) ) {
-        update_post_meta( $post_id, '_author_format', $_POST['_author_format'] ); 
+    if(isset($_POST['_author_format'])){
+        update_post_meta($post_id, '_author_format', $_POST['_author_format']);
     }
-    if( isset( $_POST['_author_chars'] ) ) {
-        update_post_meta( $post_id, '_author_chars', $_POST['_author_chars'] ); 
+    if(isset($_POST['_author_chars'])){
+        update_post_meta($post_id, '_author_chars', $_POST['_author_chars']);
     }
-    if( isset( $_POST['_author_collection'] ) ) {
-        update_post_meta( $post_id, '_author_collection', $_POST['_author_collection'] ); 
+    if(isset($_POST['_author_collection'])){
+        update_post_meta($post_id, '_author_collection', $_POST['_author_collection']);
     }
-    if( isset( $_POST['_author_language'] ) ) {
-        update_post_meta( $post_id, '_author_language', $_POST['_author_language'] ); 
+    if(isset($_POST['_author_language'])){
+        update_post_meta($post_id, '_author_language', $_POST['_author_language']);
     }
-    if( isset( $_POST['_author_date'] ) ) {
-        update_post_meta( $post_id, '_author_date', $_POST['_author_date'] ); 
+    if(isset($_POST['_author_date'])){
+        update_post_meta($post_id, '_author_date', $_POST['_author_date']);
     }
-    if( isset( $_POST['_author_ibic'] ) ) {
-        update_post_meta( $post_id, '_author_ibic', $_POST['_author_ibic'] ); 
+    if(isset($_POST['_author_ibic'])){
+        update_post_meta($post_id, '_author_ibic', $_POST['_author_ibic']);
+    }
+    foreach([
+              '_author_pages', '_author_length', '_author_width',
+              '_author_weight', '_author_height',
+            ] as $item){
+        update_post_meta($post_id, $item, $_POST[$item] ?? null);
     }
 }
+
 ?>

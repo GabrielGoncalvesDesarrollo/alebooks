@@ -870,7 +870,17 @@ body {
 			font-weight: 500;
 		}
 		&__general{
-			margin: rem(10) rem(0);
+			margin: rem(20) rem(0);
+			font-size: rem(16);
+			font-family: var(--font-secondary);
+			font-weight: 500;
+			p{
+				margin: 0;
+			}
+			.title{
+				font-size: rem(20);
+				font-weight: 500;
+			}
 		}
 		
 		.posted_in {

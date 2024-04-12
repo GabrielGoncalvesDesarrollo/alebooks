@@ -92,8 +92,9 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 
 					if ($product && $product->get_sku()) {
 						?>
-						<div class="product__sku">
-							ISBN: <?php echo esc_html($product->get_sku()); ?>
+						<div class="product__general">
+							<p class="title">ISBN</p>
+							 <?php echo esc_html($product->get_sku()); ?>
 						</div>
 						<?php
 					}
@@ -103,6 +104,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_bio ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">Biografía</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_bio', true ); ?>
 						</div>
 					<?php endif; ?>
@@ -112,6 +114,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_ibic ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">IBIC</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_ibic', true ); ?>
 						</div>
 					<?php endif; ?>
@@ -121,6 +124,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_subtitle ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">Subtítulo</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_subtitle', true ); ?>
 						</div>
 					<?php endif; ?>
@@ -130,6 +134,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_chars ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">Características</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_chars', true ); ?>
 						</div>
 					<?php endif; ?>
@@ -139,6 +144,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_format ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">Formato del producto</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_format', true ); ?>
 						</div>
 					<?php endif; ?>
@@ -148,6 +154,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_editoral ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">Editorial</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_editoral', true ); ?>
 						</div>
 					<?php endif; ?>
@@ -157,6 +164,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_collection ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">Colección</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_collection', true ); ?>
 						</div>
 					<?php endif; ?>
@@ -166,6 +174,7 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_language ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">Idioma</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_language', true ); ?>
 						</div>
 					<?php endif; ?>
@@ -175,9 +184,39 @@ if ( has_term( 'low-cost', 'product_cat', $product->get_id() ) ) {
 						if ( ! empty( $author_date ) ) :
 						?>
 						<div class="product__general">
+							<p class="title">Fecha de publicación</p>
 							<?php echo get_post_meta( get_the_ID(), '_author_date', true ); ?>
 						</div>
 					<?php endif; ?>
+
+					<?php
+						$author_pages = get_post_meta( get_the_ID(), '_author_pages', true );
+						$author_weight = get_post_meta( get_the_ID(), '_author_weight', true );
+						$author_length = get_post_meta( get_the_ID(), '_author_length', true );
+						$author_width = get_post_meta( get_the_ID(), '_author_width', true );
+						$author_height = get_post_meta( get_the_ID(), '_author_height', true );
+						if ( ! empty( $author_pages ) || ! empty( $author_weight ) || ! empty( $author_length ) || ! empty( $author_width ) || ! empty( $author_height ) ) :
+					?>
+					<div class="product__general">
+						<p class="title">Características</p>
+						<?php if ( ! empty( $author_pages ) ) : ?>
+						<p>Páginas: <?php echo $author_pages; ?></p>
+						<?php endif; ?>
+						<?php if ( ! empty( $author_weight ) ) : ?>
+						<p>Peso: <?php echo $author_weight; ?>gr</p>
+						<?php endif; ?>
+						<?php if ( ! empty( $author_length ) ) : ?>
+						<p>Largo: <?php echo $author_length; ?>cm</p>
+						<?php endif; ?>
+						<?php if ( ! empty( $author_width ) ) : ?>
+						<p>Ancho: <?php echo $author_width; ?>cm</p>
+						<?php endif; ?>
+						<?php if ( ! empty( $author_height ) ) : ?>
+						<p>Alto: <?php echo $author_height; ?>cm</p>
+						<?php endif; ?>
+					</div>
+					<?php endif; ?>
+
 
 					<div class="product__actions">
 						<?php 
